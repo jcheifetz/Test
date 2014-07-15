@@ -1,0 +1,169 @@
+@colorLightColor: #fff;
+@colorDarkColor: #231F20;
+
+
+@font-face {
+    font-family: 'angelinaregular';
+    src: url('/css/fonts/angelina-webfont.eot');
+    src: url('/css/fonts/angelina-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/angelina-webfont.woff') format('woff'),
+         url('/css/fonts/angelina-webfont.ttf') format('truetype'),
+         url('/css/fonts/angelina-webfont.svg#angelinaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Caslon 540 W01 Roman";
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix");
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix") format("eot"),url("/css/fonts/7194b1a6-135b-4fb6-af44-f5cbf8fcbe04.woff") format("woff"),url("/css/fonts/2a4b6ead-d768-4fcc-a36f-a7fc9da0e23f.ttf") format("truetype"),url("/css/fonts/c28fb4d0-5c88-4caf-9575-acb8ef5129f2.svg#c28fb4d0-5c88-4caf-9575-acb8ef5129f2") format("svg");
+}
+@font-face{
+    font-family:"Gill Sans W01 Book";
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix");
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix") format("eot"),url("/css/fonts/2bc69477-90c2-4415-a51f-36e36eee3d5e.woff") format("woff"),url("/css/fonts/33447d8d-d920-48e7-b0a9-1d3dda80d6a6.ttf") format("truetype"),url("/css/fonts/e49c440c-7653-44ce-96d2-f775947ba9fe.svg#e49c440c-7653-44ce-96d2-f775947ba9fe") format("svg");
+}
+
+
+.serif {
+    font-family: 'Caslon 540 W01 Roman';
+}
+.serif2 {
+    font-family: 'angelinaregular';
+}
+.sans1 {
+    font-family: 'Gill Sans W01 Book';
+}
+.icons {
+    font-family: 'iconmoon-icon';
+}
+
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+.inlineBlock {
+    display: inline-block;
+    /*display: -moz-inline-stack;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;*/
+}
+.txtHd1 {
+    font-family: 'angelinaregular';
+    font-size: 1.3em;
+    text-decoration: none;
+    .colorLight
+}
+
+.txt1 {
+     font-size: 0.75em;
+     line-height: 1.4em;
+     .sans1;    
+}
+
+
+.colorDark {
+    color: @colorDarkColor!important;
+}
+.colorDarkBackground {
+    background-color: #231F20!important;
+}
+.colorLight {
+    color: @colorLightColor;
+}
+
+
+ /*
+
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+
+*/
+
+
+
+
+
+@wdS: 262px;
+@htS: 220px;
+@mg: 6px;
+.cmp-section {
+    >li:not(.cmp-section-content-recipe) {
+        width: @wdS;
+        height: @htS;
+    }
+    .cmp-section-textbox div {
+         padding: 20px 23px;
+    }
+}
+.cmp-section-x1 {
+    left: (@wdS+@mg);
+}
+.cmp-section-x2 {
+    left: 2*(@wdS+@mg);
+} 
+.cmp-section-y1 {
+    top: (@htS+@mg);
+} 
+.cmp-section-y2 {
+    top: 2*(@htS+@mg);
+}
+.cmp-section-y3 {
+    top: 3*(@htS+@mg);
+}
+.cmp-section-y4 {
+    top: 4*(@htS+@mg);
+}
+.cmp-section-y5 {
+    top: 5*(@htS+@mg);
+}
+.cmp-section-y6 {
+    top: 6*(@htS+@mg);
+}  
+.cmp-section-y7 {
+    top: 7*(@htS+@mg);
+}  
+.cmp-section-y8 {
+    top: 8*(@htS+@mg);
+}  
+.cmp-section-y9 {
+    top: 9*(@htS+@mg);
+}  
+.cmp-section-w1 {
+    width: (@wdS*1)+(@mg*0)!important;
+}
+.cmp-section-w2 {
+    width: (@wdS*2)+(@mg*1)!important;
+}
+.cmp-section-w3 {
+    width: (@wdS*3)+(@mg*2)!important;
+}
+.cmp-section-h1 {
+    height: ((@htS*1)+(@mg*0))!important;
+}     
+.cmp-section-h2 {
+    height: ((@htS*2)+(@mg*1))!important;
+}
+.cmp-section-h3 {
+    height: ((@htS*3)+(@mg*2))!important;
+}
+.cmp-section-h4 {
+    height: ((@htS*4)+(@mg*3))!important;
+} 
+.cmp-section-h5 {
+    height: ((@htS*5)+(@mg*4))!important;
+}       
+.cmp-section-h6 {
+    height: ((@htS*6)+(@mg*5))!important;
+} 
+.cmp-section-h7 {
+    height: ((@htS*7)+(@mg*6))!important;
+} 
+.cmp-section-h8 {
+    height: ((@htS*8)+(@mg*7))!important;
+} 

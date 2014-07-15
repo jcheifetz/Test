@@ -1,0 +1,537 @@
+@colorLightColor: #666;
+@colorDarkColor: #231F20;
+@colorRedColor: #ff0000;
+
+
+@font-face{
+    font-family:"Caslon 540 W01 Roman";
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix");
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix") format("eot"),url("/css/fonts/7194b1a6-135b-4fb6-af44-f5cbf8fcbe04.woff") format("woff"),url("/css/fonts/2a4b6ead-d768-4fcc-a36f-a7fc9da0e23f.ttf") format("truetype"),url("/css/fonts/c28fb4d0-5c88-4caf-9575-acb8ef5129f2.svg#c28fb4d0-5c88-4caf-9575-acb8ef5129f2") format("svg");
+}
+@font-face{
+    font-family:"Gill Sans W01 Book";
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix");
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix") format("eot"),url("/css/fonts/2bc69477-90c2-4415-a51f-36e36eee3d5e.woff") format("woff"),url("/css/fonts/33447d8d-d920-48e7-b0a9-1d3dda80d6a6.ttf") format("truetype"),url("/css/fonts/e49c440c-7653-44ce-96d2-f775947ba9fe.svg#e49c440c-7653-44ce-96d2-f775947ba9fe") format("svg");
+}
+
+@font-face {
+    font-family: 'iconmoon-icon';
+    src:url('/css/fonts/icomoon.eot');
+    src:url('/css/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('/css/fonts/icomoon.woff') format('woff'),
+        url('/css/fonts/icomoon.ttf') format('truetype'),
+        url('/css/fonts/icomoon.svg#iconmoon-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@icon-pinterest: "\f003";
+@icon-email: "\f004";
+@icon-facebook: "\f005";
+@icon-twitter: "\f006";
+@icon-linkedin: "\f007";
+@icon-pinterest2: "\f008";
+@icon-instagram: "\f00f";
+@icon-youtube: "\f00e";
+@icon-arrowDown: "\f009";
+@icon-arrowPlay: "\f010";
+@icon-arrowUp: "\f00A";
+@icon-roundOpen: "\f00B";
+@icon-roundClosed: "\f00C";
+@icon-openMenu: "\f00D";
+
+.serif {
+    font-family: 'Caslon 540 W01 Roman';
+}
+.sans1 {
+    font-family: 'Gill Sans W01 Book';
+}
+.icons {
+    font-family: 'iconmoon-icon';
+}
+a.icons-P:before { content: @icon-pinterest; }
+a.icons-F:before { content: @icon-facebook; }
+a.icons-T:before { content: @icon-twitter; }
+a.icons-E:before { content: @icon-email; }  
+a.icons-L:before { content: @icon-linkedin; } 
+a.icons-P2:before { content: @icon-pinterest2; } 
+a.icons-I:before { content: @icon-instagram; } 
+a.icons-Y:before { content: @icon-youtube; } 
+
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+.inlineBlock {
+    display: inline-block;
+    /*display: -moz-inline-stack;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;*/
+}
+.txt1 {
+     font-size: 0.75em;
+     line-height: 1.4em;
+     .sans1;    
+}
+
+.colorDark {
+    color: @colorDarkColor!important;
+}
+
+.colorLight {
+    color: @colorLightColor;
+}
+
+.colorRed {
+    color: @colorRedColor;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute!important;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.hide {
+	display: none;
+}
+.hide2 {
+    display: none!important;
+}
+
+
+
+
+
+
+.unveil {
+    display: none!important;
+}
+
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font: 16px Helvetica, Helvetica Neue, Arial;
+}
+
+noscript {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    div {
+        background: #fff;
+        height: 200px;
+        font-size: 2em;
+        padding: 30px;
+        font-weight: bold;
+        .colorDark;
+        text-align: center;
+    }
+}
+
+.wrapper {
+    width: 100%;
+}
+.main {
+    background: #fff;
+}
+
+.header-container>header {
+    display: block;
+    position: relative;
+    h1 {
+        position: relative;
+        margin: 0;
+        top: 9px;
+        padding: 0;
+        text-align: center;
+        a {
+            .icons;
+            .colorRed;
+            text-decoration: none;
+            display: block;
+            font-weight: normal;
+        }
+    }
+    .nav-1,.nav-2 {
+        .sans1;
+        ul {
+            text-align: center;
+            margin: 15px 0 7px;
+            li {
+                .inlineBlock;
+                margin-right: 20px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    text-decoration: none;
+                    .colorLight;
+                    &:hover {
+                        .colorRed;
+                    }
+                }
+            }
+        }
+    }
+    .nav-1 {
+        ul li a {
+        text-transform: uppercase;
+            &:before { 
+                content: "/ "; 
+            }
+        }
+    }
+    .nav-2 {
+        border-top: 1px solid @colorLightColor;
+        ul {
+            margin: 10px 0;
+        }
+    }
+}
+
+
+.section-content {
+
+
+}
+
+
+.footer-container {
+    position: relative;
+
+}
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+.cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
+    .colorLight;
+    .sans1;
+    position: absolute;
+    font-size: 0.7em;
+    a {
+        text-decoration: none;
+        .colorLight;
+        &:hover {
+            .colorRed;
+        }
+        span {
+            display: none;
+        }
+    }
+    div {
+        text-align: center;
+    }
+    .cmp-footer1-heading, .cmp-footer2-heading, .cmp-footer3-heading, .cmp-footer4-heading {
+        text-transform: uppercase;
+    }
+}
+.cmp-footer1, .cmp-footer2, .cmp-footer3 {
+    top: 20px;
+    width: 300px;
+}
+.cmp-footer4 {
+    text-align: center;
+    width: 100%;
+    top: 80px;
+}
+.cmp-footer1 { 
+    left: 100px; 
+}
+.cmp-footer2 {
+    left: 400px; 
+} 
+.cmp-footer3 {
+    left: 700px;
+} 
+.cmp-footer4 {}
+
+.cmp-footer2 {
+    .cmp-footer2-text {
+        ul {
+            list-style: none;
+            margin: 0;
+            li {
+                .inlineBlock;
+            }
+            a {
+                .icons;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                display: block;
+                font-size: 180%;
+            }
+        }
+    }
+}
+
+.cmp-footer1-text,.cmp-footer3-text {
+    margin-top: 20px;
+}
+.cmp-footer2-text {
+    margin-top: 15px;
+}
+
+
+
+.cmp-section-top-height {
+    min-height: 100px;
+    background: yellow;
+
+}
+
+.cmp-text {
+    .sans1;
+    font-size: 0.8em;
+    .colorLight;
+    a {
+        text-decoration: none;
+        .colorRed;
+    }
+    p {
+        margin: 0 0 15px 0;
+
+    }
+
+}
+
+.cmp-large-text {
+    .serif;
+    .colorLight;
+    font-size: 2em;
+    a {
+        text-decoration: none;
+        border-bottom: 2px solid @colorRedColor;
+        .colorLight;
+        line-height: 1em;
+        .inlineBlock;
+        position: relative;
+        top: 2px;
+        &:hover {
+            .colorRed;
+        }
+    }
+    p {
+        margin: 0 0 20px 0;
+    }
+}
+.cmp-large-text.super-large {
+    font-size: 3em;
+    line-height: 1.6em;
+
+}
+
+.cmp-large-text-center {
+    display: table;
+    width: 100%;
+    div.cmp-large-text-center-cell {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+
+.cmp-newsletterSignup {
+    text-align: center;
+    input,a {
+        border: 1px solid @colorLightColor;
+        border-width: 0 0 1px 0;
+        .colorLight;
+        .inlineBlock;
+        padding: 5px;
+        outline: 0;
+        .sans1;
+        font-size: 100%;
+    }   
+}
+
+.cmp-2col {
+    border: 1px solid red;
+    .cmp-2col-col1 {
+        float: left;
+        width: 60%;
+        border: 1px solid green;
+    } 
+    .cmp-2col-col2 {
+        float: left;
+        width: 38%;
+        border: 1px solid green;
+    } 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cmp-section {
+    >li.cmp-section-w2 {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.cmp-show-nav {
+    span {
+        display:none;
+    }
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    font-size: 1.01em;
+    .colorDark;
+    text-decoration: none;
+    &:after {
+        content: @icon-openMenu;
+        display: block;
+        .icons;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+

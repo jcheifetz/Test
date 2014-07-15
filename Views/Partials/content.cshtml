@@ -1,0 +1,119 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+	dynamic content = Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()>0 ? Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").First() : null;
+
+
+}
+
+
+@if (content!=null){
+
+	@renderContentLoop( content );
+	
+}
+
+@helper renderContentLoop(dynamic content){
+
+	@* render non image box content *@
+	foreach (var item in content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"box\")==-1")){
+		
+		@renderContent(item);
+
+		if (item.DocumentTypeAlias=="PageSubSection"){
+			@renderContentLoop(item);
+		}
+	}
+	
+	@* render image box content *@
+	var boxContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"box\")!=-1");
+	
+	if (boxContent.Count()!=0){
+		<ul class="cmp-box">
+			@foreach (var item in boxContent){
+				
+				@renderBoxContent(item);
+		
+			}
+		</ul>
+	}
+		
+}
+
+
+@helper renderContent(dynamic item){
+	@*@item.DocumentTypeAlias*@
+	
+	if (item.DocumentTypeAlias=="LargeTextCentreAligned"){
+		@renderLargeTextCenter(item)
+	}
+	if (item.DocumentTypeAlias=="LargeTextLeftAligned"){
+		@renderLargeTextLeft(item)
+	}	
+	if (item.DocumentTypeAlias=="RichText"){
+		@renderText(item)
+	}
+	
+	if (item.DocumentTypeAlias=="twoColumnSplit"){
+		<div class="cmp-2col clearfix">
+		@foreach (var item2 in item.Children){
+			<div class="cmp-2col-col@(item2.Index()+1)">
+				@renderContent(item2)
+			</div>
+		}
+		</div>
+	}
+	
+}
+
+
+@helper renderLargeTextCenter(dynamic item) {
+	
+	<div class="cmp-section-top-height cmp-large-text cmp-large-text-center">
+		<div class="cmp-large-text-center-cell">
+			@item.text
+		</div>
+	</div>
+		
+}
+
+
+@helper renderLargeTextLeft(dynamic item) {
+	<div class="cmp-section-top-height cmp-large-text @(item.supersizeMe ? "super-large" : "")">
+		@item.text
+	</div>	
+}
+
+@helper renderText(dynamic item) {
+	<div class="cmp-text">
+		@item.text
+	</div>	
+}
+
+
+@helper renderBoxContent(dynamic item){
+	
+	if (item.media.ToString()!=""){	
+	<li>
+		@{
+			dynamic media = Umbraco.Media(item.media);	
+			string caption = media.caption;
+			string src = media.GetCropUrl("image","Square");
+			string url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
+		}
+		@if (url==""){
+			<span class="cmp-box-image"><img src="@src" alt="*"/></span>
+			<span class="cmp-box-caption">@caption</span>
+		} else {
+			<a href="@url" class="cmp-box-image"><img src="@src" alt="*"/></a>
+			<a href="@url" class="cmp-box-caption">@caption</a>
+		}
+		
+	</li>
+	}
+}
+
+
+
+
+

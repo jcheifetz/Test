@@ -1,0 +1,97 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = null;
+}<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1">
+        <meta name="description" content="">
+        <title></title>
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> 
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+		
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/main.css" media="screen"> 
+        @*<link rel="stylesheet" href="https://fast.fonts.net/t/1.css?apiType=css&projectid=b41188b3-36ff-4b67-a1d1-9c3c6d9eb566">*@
+		
+<script>
+    var ipad = false;
+
+    if (screen.width >= 768 || screen.height >= 768) {
+        ipad = true;
+        document.write('<link rel="stylesheet" href="/css/screen-tablet_portrait.css" media="only screen and (min-width: 768px)">');
+        document.write('<link rel="stylesheet" href="/css/screen-tablet_landscape.css" '
+            + 'media="only screen and (min-width: 1080px),'
+            + 'only screen and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 1.2),'
+            + 'only screen and (orientation:landscape) and (min-device-width:768px) and (max-device-width:1024px) ">');
+    }
+    if (screen.width >= 1200 || screen.height >= 1200) {
+        ipad = false;
+        document.write('<link rel="stylesheet" href="/css/screen-desktop.css" media="only screen and (min-width: 1200px)">');
+    }
+
+</script>
+	
+	</head>
+	<body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <noscript>
+            <div>This website has been built with Javascript.<br /><br />Please enable Javascript to have a great browsing experience.</div>
+        </noscript>
+	<!-- Header -->
+        <div class="header-container">
+            <header class="wrapper">
+                <h1><a href="/">HMKM</a></h1>
+                <a href="javascript:" class="cmp-show-nav"><span>Show navigation</span></a>
+					
+				@{ Html.RenderPartial("nav"); }	
+            </header>
+        </div>
+    <!-- /Header -->
+
+	<!-- Main -->
+	<div class="main-container">
+		<div class="main wrapper section-content">
+			@*Umbraco.RenderMacro("Content")*@
+			@{ Html.RenderPartial("content"); }	
+		</div>
+	</div>
+	<!-- /Main -->		
+
+    @* @RenderBody() *@
+
+    <!-- Footer -->
+    <div class="footer-container">
+        <footer class="wrapper">
+            <div class="footer-content">
+  				<div class="cmp-footer1">
+					<div class="cmp-footer1-heading">Contact us directly</div>
+					<div class="cmp-footer1-text">@Umbraco.Field("footer1Text", recursive: true)</div>
+				</div>
+				<div class="cmp-footer2">
+					<div class="cmp-footer2-heading">Follow us on the move:</div>
+					<div class="cmp-footer2-text">@{ Html.RenderPartial("social"); }</div>	
+				</div>
+				<div class="cmp-footer3">
+					<div class="cmp-footer3-heading">Sign up to receive our emailers:</div>
+					<div class="cmp-footer3-text">
+						@{ Html.RenderPartial("newsletterSignup"); }
+					</div>
+				</div>
+				<div class="cmp-footer4">
+					&copy;@Umbraco.Field("copyright", recursive: true) - @DateTime.Now.Year
+					
+				</div>
+            </div>
+        </footer>
+    </div>
+    <!-- /Footer -->
+</body>
+</html>

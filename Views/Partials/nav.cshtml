@@ -1,0 +1,32 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var homePage = CurrentPage.AncestorsOrSelf(1);
+	var level1 = CurrentPage.AncestorsOrSelf(2);
+	
+
+}
+<!-- Nav -->
+<nav class="nav-1">
+    <ul>
+
+        @foreach (var item in homePage.First().Children.Where("NodeTypeAlias==\"Page\""))
+        {
+            <li class="@(CurrentPage.Id == item.Id ? "current_page_item" : null)"><a href="@item.Url">@item.Name</a></li>
+        }
+    </ul>
+</nav>
+@if (level1.Count()>0 && level1.First().Level==2){
+	<nav class="nav-2">
+		<ul>
+	
+			@foreach (var item in level1.First().Children.Where("NodeTypeAlias==\"Page\""))
+			{
+				<li class="@(CurrentPage.Id == item.Id ? "current_page_item" : null)"><a href="@item.Url">@item.Name</a></li>
+			}
+		</ul>
+	</nav>	
+			
+}
+		
+		
+<!-- /Nav -->

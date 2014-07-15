@@ -1,0 +1,142 @@
+@colorLightColor: #666;
+@colorDarkColor: #231F20;
+@colorRedColor: #ff0000;
+
+
+@font-face {
+    font-family: 'angelinaregular';
+    src: url('/css/fonts/angelina-webfont.eot');
+    src: url('/css/fonts/angelina-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/angelina-webfont.woff') format('woff'),
+         url('/css/fonts/angelina-webfont.ttf') format('truetype'),
+         url('/css/fonts/angelina-webfont.svg#angelinaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Caslon 540 W01 Roman";
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix");
+    src:url("/css/fonts/cc3c3e83-7364-42fc-af57-c555d3f00904.eot?#iefix") format("eot"),url("/css/fonts/7194b1a6-135b-4fb6-af44-f5cbf8fcbe04.woff") format("woff"),url("/css/fonts/2a4b6ead-d768-4fcc-a36f-a7fc9da0e23f.ttf") format("truetype"),url("/css/fonts/c28fb4d0-5c88-4caf-9575-acb8ef5129f2.svg#c28fb4d0-5c88-4caf-9575-acb8ef5129f2") format("svg");
+}
+@font-face{
+    font-family:"Gill Sans W01 Book";
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix");
+    src:url("/css/fonts/2cebe80c-b289-4ae0-a3b0-baa82c6c6e10.eot?#iefix") format("eot"),url("/css/fonts/2bc69477-90c2-4415-a51f-36e36eee3d5e.woff") format("woff"),url("/css/fonts/33447d8d-d920-48e7-b0a9-1d3dda80d6a6.ttf") format("truetype"),url("/css/fonts/e49c440c-7653-44ce-96d2-f775947ba9fe.svg#e49c440c-7653-44ce-96d2-f775947ba9fe") format("svg");
+}
+
+
+
+.serif {
+    font-family: 'Caslon 540 W01 Roman';
+}
+.serif2 {
+    font-family: 'angelinaregular';
+}
+.sans1 {
+    font-family: 'Gill Sans W01 Book';
+}
+
+.box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+.inlineBlock {
+    display: inline-block;
+    /*display: -moz-inline-stack;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;*/
+}
+.txtHd1 {
+    font-family: 'angelinaregular';
+    font-size: 1.3em;
+    text-decoration: none;
+    .colorLight
+}
+
+.txt1 {
+     font-size: 0.75em;
+     line-height: 1.4em;
+     .sans1;    
+}
+
+
+.colorDark {
+    color: @colorDarkColor!important;
+}
+.colorLight {
+    color: @colorLightColor;
+}
+
+
+ /*
+
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+ ======================================================================================
+
+*/
+
+.wrapper {
+    width: 1080px; /* 1140px - 10% for margins */
+}
+
+
+
+
+
+
+
+@wdS: 228px;
+@htS: 192px;
+@mg: 6px;
+
+.cmp-section-w3 {
+    width: (@wdS*3)+(@mg*2)!important;
+}
+.cmp-section-x1 {
+    left: (@wdS+@mg);
+}
+.cmp-section-x2 {
+    left: 2*(@wdS+@mg);
+} 
+.cmp-section-y1 {
+    top: (@htS+@mg);
+} 
+.cmp-section-y2 {
+    top: 2*(@htS+@mg);
+}
+.cmp-section-y3 {
+    top: 3*(@htS+@mg);
+}
+.cmp-section-y4 {
+    top: 4*(@htS+@mg);
+}
+.cmp-section-y5 {
+    top: 5*(@htS+@mg);
+}
+.cmp-section-y6 {
+    top: 6*(@htS+@mg);
+}  
+.cmp-section-y7 {
+    top: 7*(@htS+@mg);
+}  
+.cmp-section-y8 {
+    top: 8*(@htS+@mg);
+}  
+.cmp-section-y9 {
+    top: 9*(@htS+@mg);
+}  
+.cmp-section-bgStretch {
+    display: block;
+}    
+
+
+nav.cmp-footer-right { 
+    right: 28px;
+    top: 20px;
+}
