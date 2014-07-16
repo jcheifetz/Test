@@ -420,6 +420,33 @@ noscript {
         margin: 0 0 15px 0;
 
     }
+    .cmp-text-social {
+        span {
+            .inlineBlock;
+        }
+        ul {
+            .inlineBlock;
+            list-style: none;
+            margin: 0 0 0 3px;
+            padding: 0;
+            li {
+                .inlineBlock;
+                margin-left: 3px;
+                a {
+                    text-decoration: none;
+                    .icons;
+
+                    .colorLight;
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+
 
 }
 
@@ -471,8 +498,42 @@ noscript {
         outline: 0;
         .sans1;
         font-size: 100%;
+        &::-webkit-input-placeholder {
+           .colorLight;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+           .colorLight;  
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+           .colorLight;  
+        }
+        &:-ms-input-placeholder {  
+           .colorLight; 
+        }
+
     }   
 }
+
+
+.cmp-box {
+    list-style: none;
+    margin: 0;
+    .cmp-box-image, .cmp-box-caption {
+        display: block;
+
+    }
+    .cmp-box-caption {
+        .sans1;
+        font-size: 0.8em;
+        .colorLight;
+        text-decoration: none;
+
+    }
+}
+
+
+
+
 
 .cmp-2col {
     border: 1px solid red;

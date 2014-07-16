@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-
+@using Umbraco.Web.Models
+	
 @{
 	dynamic content = Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()>0 ? Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").First() : null;
 
@@ -87,28 +88,44 @@
 @helper renderText(dynamic item) {
 	<div class="cmp-text">
 		@item.text
+		@if (item.showShareLinks){
+			<div class="cmp-text-social">
+				<span>Share</span>
+				<ul>
+					<li><a href="#" class="icons-F"><span>Facebook</span></a></li>
+					<li><a href="#" class="icons-Y"><span>youTube</span></a></li>					
+					<li><a href="#" class="icons-T"><span>Twitter</span></a></li>					
+					<li><a href="#" class="icons-P"><span>Pinterest</span></a></li>			
+					<li><a href="#" class="icons-I"><span>Instagram</span></a></li>	
+				</ul>
+			</div>
+		}
 	</div>	
 }
 
 
 @helper renderBoxContent(dynamic item){
 	
-	if (item.media.ToString()!=""){	
+	if (item.HasValue("media")){	
 	<li>
 		@{
 			dynamic media = Umbraco.Media(item.media);	
-			string caption = media.caption;
+			string caption = item.caption.ToString();
 			string src = media.GetCropUrl("image","Square");
+			
+			
+			string src2 =  media.GetResponsiveCropUrl("Square", "image");
+			
+
 			string url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
 		}
 		@if (url==""){
-			<span class="cmp-box-image"><img src="@src" alt="*"/></span>
+			<span class="cmp-box-image"><img src="@src" alt="@(caption=="" ? "*" : caption)"/></span>
 			<span class="cmp-box-caption">@caption</span>
 		} else {
-			<a href="@url" class="cmp-box-image"><img src="@src" alt="*"/></a>
+			<a href="@url" class="cmp-box-image"><img src="@src2" alt="*"/></a>
 			<a href="@url" class="cmp-box-caption">@caption</a>
 		}
-		
 	</li>
 	}
 }
