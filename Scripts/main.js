@@ -4,15 +4,29 @@ require.config({
   }
 });
 
-require(["jquery"], function() {
+require(["jquery", "vendor/slimmage.min"], function() {
 	$(function(){
 
 		// lazy load images
 		wrO.unveil();
 
-		// set landscape ipad to 0.95 scale
-		scale();
+		// menu
+		$("a.cmp-show-nav").on("click", function(){
+			var $a = $(this);
+			var $m = $(".nav-1");
+			$a.toggleClass("active");
+			if ($a.hasClass("active")){
 
+				$m.animate({left: "0"}, 250);
+
+			} else {
+
+				$m.animate({left: "-260px"}, 250);
+
+			}
+
+
+		});
 
 
 	});
@@ -46,8 +60,8 @@ var wlFn = function(){
 
 if (document.readyState!="complete"){
 	window.onload = function(){
-		wlFn();
+		//wlFn();
 	}
 } else {
-	wlFn();
+	//wlFn();
 }
