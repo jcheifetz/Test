@@ -16,12 +16,16 @@ require(["jquery", "vendor/slimmage.min"], function() {
 			var $m = $(".nav-1");
 			$a.toggleClass("active");
 			if ($a.hasClass("active")){
-
-				$m.animate({left: "0"}, 250);
+				$m.parent().show();
+				$m.animate({left: "0"}, 250 
+				);
 
 			} else {
 
-				$m.animate({left: "-260px"}, 250);
+				$m.animate({left: "-260px"}, 250,
+					function(){
+						$m.parent().hide();
+					});
 
 			}
 

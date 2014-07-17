@@ -23,6 +23,7 @@
 
 		if (item.DocumentTypeAlias=="PageSubSection"){
 			@renderContentLoop(item);
+			<br/><br/>
 		}
 	}
 	
@@ -56,13 +57,9 @@
 	}
 	
 	if (item.DocumentTypeAlias=="twoColumnSplit"){
-		<div class="cmp-2col clearfix">
-		@foreach (var item2 in item.Children){
-			<div class="cmp-2col-col@(item2.Index()+1)">
+		<div class="cmp-2col clearfix">@foreach (var item2 in item.Children){<div class="cmp-2col-col@(item2.Index()+1)">
 				@renderContent(item2)
-			</div>
-		}
-		</div>
+			</div>}</div>
 	}
 	
 }
