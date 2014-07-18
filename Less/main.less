@@ -300,6 +300,7 @@ noscript {
         }
     }
     nav {
+        display: none;
         overflow: hidden;
         position: absolute;
         height: 600px;
@@ -378,7 +379,6 @@ noscript {
 .cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
     .colorLight;
     .sans1;
-    position: absolute;
     font-size: 0.7em;
     a {
         text-decoration: none;
@@ -397,31 +397,21 @@ noscript {
         text-transform: uppercase;
     }
 }
-.cmp-footer1, .cmp-footer2, .cmp-footer3 {
-    top: 20px;
-    width: 300px;
-}
+
 .cmp-footer4 {
+    margin-top: 40px;
     text-align: center;
     width: 100%;
-    top: 80px;
 }
-.cmp-footer1 { 
-    left: 100px; 
-}
-.cmp-footer2 {
-    left: 400px; 
-} 
-.cmp-footer3 {
-    left: 700px;
-} 
-.cmp-footer4 {}
+
 
 .cmp-footer2 {
+    margin-top: 40px;
     .cmp-footer2-text {
         ul {
             list-style: none;
             margin: 0;
+            padding: 0;
             li {
                 .inlineBlock;
             }
@@ -437,19 +427,32 @@ noscript {
     }
 }
 
-.cmp-footer1-text,.cmp-footer3-text {
-    margin-top: 20px;
+.cmp-footer3 {
+    margin-top: 40px;
+}
+
+.cmp-footer4 {}
+
+
+.cmp-footer1-text {
+    margin-top: 21px;
+    p {
+        margin: 0 0 15px 0;
+        padding: 0;
+    }
+}
+
+.cmp-footer3-text {
+    margin-top: 15px;
 }
 .cmp-footer2-text {
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 
 
 .cmp-section-top-height {
     min-height: 100px;
-    background: yellow;
-
 }
 
 .cmp-text {
@@ -495,9 +498,14 @@ noscript {
 }
 
 .cmp-large-text {
-    .serif;
+    .sans1;
     .colorLight;
     font-size: 2em;
+    strong {
+        .serif;
+        .colorRed;
+        font-size: 135%;
+    }
     a {
         text-decoration: none;
         border-bottom: 2px solid @colorRedColor;
@@ -533,12 +541,18 @@ noscript {
 
 .cmp-newsletterSignup {
     text-align: center;
-    input,a {
+    span {
+
+    }
+    input {
+        width: 320px;
         border: 1px solid @colorLightColor;
         border-width: 0 0 1px 0;
+    }
+    input,a,span {
         .colorLight;
         .inlineBlock;
-        padding: 5px;
+        padding: 5px 5px 0 5px;
         outline: 0;
         .sans1;
         font-size: 100%;
@@ -580,16 +594,11 @@ noscript {
 
 
 .cmp-2col {
-    border: 1px solid red;
     .cmp-2col-col1 {
-        float: left;
-        width: 60%;
-        border: 1px solid green;
+
     } 
     .cmp-2col-col2 {
-        float: left;
-        width: 38%;
-        border: 1px solid green;
+
     } 
 
 }
@@ -624,10 +633,10 @@ noscript {
         display:none;
     }
     position: absolute;
-    top: 4px;
-    left: 0px;
+    top: 0px;
+    left: -9px;
     padding: 10px;
-    font-size: 1.01em;
+    font-size: 1.5em;
     .colorDark;
     text-decoration: none;
     &:after {
