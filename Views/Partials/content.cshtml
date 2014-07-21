@@ -30,7 +30,7 @@
 	@* render image tile content *@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
-		<ul class="cmp-tile">
+		<ul class="cmp-tile @if(content.TwoColumnMobileTiles){@("cmp-tile-2col");}">
 			@foreach (var item in tileContent){
 				
 				@renderTileContent(item);

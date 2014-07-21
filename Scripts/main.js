@@ -33,7 +33,7 @@ require(["jquery"], function() {
 		});
 
 		// if 2nd level nav add top padding to content
-		if ($(".nav-2").length!=-1){
+		if ($(".nav-2").length!=0){
 			$(".section-content").addClass("nav2Padding");
 		}
 	});

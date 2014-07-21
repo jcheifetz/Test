@@ -358,9 +358,10 @@ noscript {
 
 
 .section-content {
-    padding-top: 20px;
-    padding-bottom: 40px;
-
+    margin-top: -7px!important;
+    padding-bottom: 33px;
+    position: relative;
+    overflow: hidden;
 }
 
 
@@ -579,9 +580,19 @@ noscript {
     list-style: none;
     margin: 0;
     padding: 0;
-    .cmp-tile-image, .cmp-tile-caption {
+    width: 102%;
+    height: 100%;
+    li {
+        float: left;
+        width: 100%;
+    }
+    .cmp-tile-image {
         display: block;
-        padding: 3px 0;
+    }
+    .cmp-tile-caption {
+        display: block;
+        padding-top: 3px;
+        height: 22px;
     }
     .cmp-tile-caption {
         .sans1;
@@ -593,9 +604,16 @@ noscript {
     img {
         width: 100%;
     }
+
 }
 
-
+.cmp-tile.cmp-tile-2col {
+    li {
+        width: 50%;
+        padding-right: 2%; 
+        .box-sizing;       
+    }
+}
 
 
 
@@ -624,11 +642,6 @@ noscript {
 
 
 
-.cmp-section {
-    >li.cmp-section-w2 {
-        width: 100%;
-    }
-}
 
 
 
