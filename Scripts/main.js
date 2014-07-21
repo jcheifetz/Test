@@ -4,7 +4,7 @@ require.config({
   }
 });
 
-require(["jquery", "vendor/slimmage.min"], function() {
+require(["jquery"], function() {
 	$(function(){
 
 		// lazy load images
@@ -32,7 +32,10 @@ require(["jquery", "vendor/slimmage.min"], function() {
 
 		});
 
-
+		// if 2nd level nav add top padding to content
+		if ($(".nav-2").length!=-1){
+			$(".section-content").addClass("nav2Padding");
+		}
 	});
 });
 
