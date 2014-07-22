@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using Umbraco.Web.Models
-	
+@using System.Text.RegularExpressions;
+@using System.Text;
+
 @{
 	dynamic content = Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()>0 ? Model.Content.Children.Where("DocumentTypeAlias==\"PageContent\"").First() : null;
 
@@ -23,14 +25,14 @@
 
 		if (item.DocumentTypeAlias=="PageSubSection"){
 			@renderContentLoop(item);
-			<br/><br/>
+			<div class="cmp-section-spacer"></div>
 		}
 	}
 	
 	@* render image tile content *@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
-		<ul class="cmp-tile @if(content.TwoColumnMobileTiles){@("cmp-tile-2col");}">
+		<ul class="cmp-tile clearfix @if(content.TwoColumnMobileTiles){@("cmp-tile-2col");}">
 			@foreach (var item in tileContent){
 				
 				@renderTileContent(item);
@@ -60,7 +62,11 @@
 				@renderContent(item2)
 			</div>}</div>
 	}
-	
+	if (item.DocumentTypeAlias=="threeColumnSplit"){
+		<div class="cmp-3col clearfix">@foreach (var item2 in item.Children){<div class="cmp-3col-col@(item2.Index()+1)">
+				@renderContent(item2)
+			</div>}</div>
+	}
 }
 
 
@@ -76,8 +82,22 @@
 
 
 @helper renderLargeTextLeft(dynamic item) {
+	string text = item.text.ToString();
+	
 	<div class="cmp-section-top-height cmp-large-text @(item.supersizeMe ? "super-large" : "")">
-		@item.text
+		@if (item.isClientList){
+			text = Regex.Replace(text, @"\<p\>|<\/p>", "", RegexOptions.IgnoreCase);
+			text = Regex.Replace(text, @"<br\/>|<br>|<br \/>", "|", RegexOptions.IgnoreCase);
+			var textA = text.Split('|');
+			StringBuilder sb = new StringBuilder();
+			sb.Append("<p class=\"cmp-large-text-clients\">");
+			foreach(string text2 in textA){
+				sb.Append("<span>"+text2+"</span>");
+			}
+			sb.Append("</p>");
+			text = sb.ToString();
+		}
+		@Html.Raw(text)
 	</div>	
 }
 
@@ -101,8 +121,6 @@
 
 
 @helper renderTileContent(dynamic item){
-	
-
 
 	string caption = "";
 	string src =  "";	

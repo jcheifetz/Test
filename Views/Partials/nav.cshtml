@@ -14,7 +14,7 @@
             <li class="@(level1.First().Id == item.Id ? "nav-1-active" : null)">
 				<a href="@item.Url">@item.Name</a>
 				
-				@if (level1.First().Id == item.Id && level1.Count()>0 && level1.First().Level==2){
+				@if (level1.First().Id == item.Id && level1.First().Children.Where("NodeTypeAlias==\"Page\"").Count()>0){
 					
 					<ul class="nav-2">
 					

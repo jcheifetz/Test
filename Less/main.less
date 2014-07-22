@@ -59,6 +59,8 @@
 @icon-roundOpen: "\f00B";
 @icon-roundClosed: "\f00C";
 @icon-openMenu: "\f00D";
+@icon-square: "\e601";
+@icon-circle: "\e600";
 
 .serif {
     font-family: 'SuperiorTitle-bold';
@@ -80,6 +82,8 @@ a.icons-L:before { content: @icon-linkedin; }
 a.icons-P2:before { content: @icon-pinterest2; } 
 a.icons-I:before { content: @icon-instagram; } 
 a.icons-Y:before { content: @icon-youtube; } 
+.icons-SQ:before { content: @icon-square; } 
+.icons-CI:before { content: @icon-circle; } 
 
 .box-sizing {
     -webkit-box-sizing: border-box;
@@ -358,7 +362,7 @@ noscript {
 
 
 .section-content {
-    margin-top: -7px!important;
+    margin-top: 1em!important;
     padding-bottom: 33px;
     position: relative;
     overflow: hidden;
@@ -454,13 +458,14 @@ noscript {
 
 
 .cmp-section-top-height {
-    min-height: 185px;
-}
+    /*min-height: 185px;*/
+ }
 
 .cmp-text {
     .sans1;
     font-size: 0.8em;
     .colorLight;
+    padding-bottom: 15px;
     a {
         text-decoration: none;
         .colorRed;
@@ -468,6 +473,18 @@ noscript {
     p {
         margin: 0 0 15px 0;
 
+    }
+    strong {
+        font-weight: normal;
+        .colorRed;
+    }
+    .cmp-text-blue {
+        color: #00BFFF; 
+        text-transform: uppercase; 
+    }
+    .cmp-text-red {
+        color: #DF001F;
+        text-transform: uppercase;
     }
     .cmp-text-social {
         span {
@@ -492,37 +509,51 @@ noscript {
                 }
             }
         }
-
     }
 
 
 
 }
 
+.cmp-section-spacer {
+    height: 60px;
+}
 
 .cmp-large-text {
     .sans1;
     .colorLight;
-    font-size: 2em;
+    font-size: 1.7em;
+    line-height: 135%;
+    margin-bottom: 55px;
     strong {
         .serif;
         .colorRed;
-        font-size: 135%;
+        font-size: 130%;
+        height: 0px;
+        display: inline-block;
+        position: relative;
+        top: 0px;
     }
     a {
         text-decoration: none;
-        border-bottom: 2px solid @colorRedColor;
+        border-bottom: 2px solid @colorLightColor;
         .colorLight;
         line-height: 1em;
         .inlineBlock;
         position: relative;
         top: 2px;
+
         &:hover {
-            .colorRed;
+            border-bottom: 2px solid @colorRedColor;
         }
     }
     p {
-        margin: 0;
+        margin: 0 0 1em 0;
+    }
+    .cmp-large-text-clients span {
+        white-space: nowrap;
+        .inlineBlock;
+        margin-right: 10px;
     }
 }
 .cmp-large-text.super-large {
@@ -622,9 +653,21 @@ noscript {
 
     } 
     .cmp-2col-col2 {
-
+        margin-top: -0.5em;
     } 
 
+}
+
+.cmp-3col {
+    .cmp-3col-col1 {
+
+    } 
+    .cmp-3col-col2 {
+
+    } 
+    .cmp-3col-col3 {
+
+    } 
 }
 
 

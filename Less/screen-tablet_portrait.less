@@ -61,6 +61,7 @@ body {
     .nav-1,.nav-2 {
         text-align: center;
         margin: 15px 0 7px;
+        z-index: 1;
         li {
             .inlineBlock;
             margin-right: 20px;
@@ -96,25 +97,37 @@ body {
 }
 
 .nav2Padding {
-    padding-top: 60px;
+    padding-top: 45px;
 }
 
 
-.cmp-2col {
-    .cmp-2col-col1 {
-        float: left;
-        width: 60%;
-    } 
-    .cmp-2col-col2 {
-        float: left;
-        width: 40%;
-    } 
 
+
+.cmp-3col {
+    .cmp-3col-col1,.cmp-3col-col2 {
+        float: left;
+        width: 49%;
+    } 
+    .cmp-3col-col1 {
+        margin-right: 2%;
+    }
+    .cmp-3col-col3 {
+        padding-top: 20px;
+        clear: left;
+    }
+     .cmp-large-text {
+        margin-top: -3px;
+    }
 }
+
+.cmp-section-spacer {
+    height: 20px;
+}
+
 
 
 .cmp-section-top-height {
-    min-height: 120px;
+    /*min-height: 120px;*/
 }
 
 .footer-content {
