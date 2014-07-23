@@ -36,6 +36,49 @@ require(["jquery"], function() {
 		if ($(".nav-2").length!=0){
 			$(".section-content").addClass("nav2Padding");
 		}
+
+		// email signup
+		var $fm = $(".cmp-newsletterSignup"), 
+			$a = $fm.find("a"),
+			$i = $fm.find("input");
+
+		$a.on("click", function(){
+			if ($i.val()==""){
+				$i.removeClass("invalid");
+				return;
+			}
+			if (!validateEmail($i.val())){
+				$i.addClass("invalid");
+				return;	
+			}
+			$i.removeClass("invalid");
+			$fm.addClass("invisible");
+			$.ajax(
+				{
+					"url": "?altTemplate=NewsletterSignup",
+					"dataType": "json",
+					"type": "post",
+					"data": { "email": $i.val() },
+					"error": function(){
+						alert("Sorry, there was an error submitting your email address.");
+						$fm.removeClass("invisible");
+					},
+					"success": function(data){
+						alert(data.message);
+						$fm.removeClass("invisible");
+						if (data.success){
+							$i.removeClass("invalid").val("");
+						}
+					}
+				})
+
+
+		});
+
+		function validateEmail(email) { 
+		    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		    return re.test(email);
+		} 
 	});
 });
 

@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Text.RegularExpressions;
+
+@{
+    Layout = "Ajax.cshtml";	
+	string successTxt = "Thank you! Your your email addres has been added to our emailer list.";
+	string errorTxt = "Sorry, there was an error submitting your email address.";
+	string message = "";
+	bool success;
+	string email = Request.Form["email"];
+	if (email!=null && emailValidate(email)){
+		message = successTxt;
+		success = true;
+	} else {
+		message = errorTxt;
+		success = false;
+	}
+}
+{"message":"@(message)", "success": "@success.ToString().ToLower()" }
+
+
+@functions{
+	
+	public static bool emailValidate(string value){
+		return value != null && Regex.IsMatch(value, @"\A(?:[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9](?:[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9-]*[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9])?\.)+[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9](?:[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9-]*[a-zÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüŸ¿çÇŒœßØøÅåÆæÞþÐð0-9])?)\Z", RegexOptions.IgnoreCase);
+	}	
+	
+}
