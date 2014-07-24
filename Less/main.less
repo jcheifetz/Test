@@ -61,6 +61,7 @@
 @icon-openMenu: "\f00D";
 @icon-square: "\e601";
 @icon-circle: "\e600";
+@icon-logo: "\e602";
 
 .serif {
     font-family: 'SuperiorTitle-bold';
@@ -291,9 +292,10 @@ noscript {
     position: relative;
     h1 {
         margin: 0;
-        padding: 0;
+        padding: 0 0 10px 0;
         text-align: center;
-        font-size: 46px;
+        font-size: 7em;
+        line-height: 0.55em;
         border-bottom: 1px solid @colorLightColor;
         a {
             .icons;
@@ -301,6 +303,11 @@ noscript {
             text-decoration: none;
             display: block;
             font-weight: normal;
+            height: 62px;
+            &:before { content: @icon-logo; } 
+            span {
+                display: none;
+            }
         }
     }
     nav {
@@ -365,7 +372,6 @@ noscript {
     margin-top: 1em!important;
     padding-bottom: 33px;
     position: relative;
-    overflow: hidden;
 }
 
 
@@ -611,41 +617,53 @@ noscript {
 
 
 .cmp-tile {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 102%;
-    height: 100%;
-    li {
-        float: left;
+    width: 100%;
+    >div {
+        margin-right:-6px;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
         width: 100%;
-    }
-    .cmp-tile-image {
-        display: block;
-    }
-    .cmp-tile-caption {
-        display: block;
-        padding-top: 3px;
-        height: 22px;
-    }
-    .cmp-tile-caption {
-        .sans1;
-        font-size: 0.8em;
-        .colorLight;
-        text-decoration: none;
+        height: 100%;
+        li {
+            float: left;
+            width: 100%;
+            .box-sizing; 
+            padding-right: 6px; 
+        }
+        .cmp-tile-image {
+            display: block;
+        }
+        .cmp-tile-caption {
+            display: block;
+            padding-top: 3px;
+            height: 22px;
+            position: relative;
+            background: #fff;
+        }
+        .cmp-tile-landscape .cmp-tile-caption {
+            margin-top: -12px;
+        }
 
-    }
-    img {
-        width: 100%;
-    }
 
+        .cmp-tile-caption {
+            .sans1;
+            font-size: 0.8em;
+            .colorLight;
+            text-decoration: none;
+
+        }
+        img {
+            width: 100%;
+        }
+    }
 }
 
-.cmp-tile.cmp-tile-2col {
+.cmp-tile.cmp-tile-2colMobile {
     li {
         width: 50%;
-        padding-right: 2%; 
-        .box-sizing;       
     }
 }
 

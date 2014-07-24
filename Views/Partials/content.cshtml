@@ -32,13 +32,17 @@
 	@* render image tile content *@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
-		<ul class="cmp-tile clearfix @if(content.TwoColumnMobileTiles){@("cmp-tile-2col");}">
-			@foreach (var item in tileContent){
+		<div class="cmp-tile clearfix @if(content.TwoColumnMobileTiles){@("cmp-tile-2colMobile");} @if(content.SixColumnDesktopTiles){@("cmp-tile-6colDesktop");}">
+			<div>
+				<ul>
+					@foreach (var item in tileContent){
+						
+						@renderTileContent(item);
 				
-				@renderTileContent(item);
-		
-			}
-		</ul>
+					}
+				</ul>
+			</div>
+		</div>
 	}
 		
 }
@@ -125,12 +129,13 @@
 	string caption = "";
 	string src =  "";	
 	string url = "";
+	string crop = "";
 	
 	if (item.DocumentTypeAlias=="ContentTile"){
 		if (item.HasValue("media")){
 			dynamic media = Umbraco.Media(item.media);
 			caption = item.caption.ToString();
-			string crop = item.portraitOrientation ? "Portrait" : "Landscape";
+			crop = item.portraitOrientation ? "Portrait" : "Landscape";
 			src =  media.GetResponsiveCropUrl(crop, "image");
 			url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
 		}
@@ -144,7 +149,7 @@
 			dynamic media = Umbraco.Media(content.media);
 			if (content.HasValue("media")){
 				caption = content.caption.ToString();
-				string crop = content.portraitOrientation ? "Portrait" : "Landscape";
+				crop = content.portraitOrientation ? "Portrait" : "Landscape";
 				src =  media.GetResponsiveCropUrl(crop, "image");
 				url = content.Url;
 			}
@@ -153,7 +158,7 @@
 	
 
 	if (src!=""){
-		<li>
+		<li class="cmp-tile-@(crop.ToLower())">
 		@if (url==""){
 			<span class="cmp-tile-image"><img src="@src" alt="@(caption=="" ? "*" : caption)"/></span>
 			<span class="cmp-tile-caption">@caption</span>
