@@ -31,12 +31,6 @@ require(["jquery"], function() {
 
 
 		});
-
-		// if 2nd level nav add top padding to content
-		if ($(".nav-2").length!=0){
-			$(".section-content").addClass("nav2Padding");
-		}
-
 		// email signup
 		var $fm = $(".cmp-newsletterSignup"), 
 			$a = $fm.find("a"),
