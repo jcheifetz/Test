@@ -33,15 +33,13 @@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
 		<div class="cmp-tile clearfix @if(content.smallTiles){@("cmp-tile-smallTiles");}">
-			<div>
-				<ul>
-					@foreach (var item in tileContent){
-						
-						@renderTileContent(item);
+			<ul>
+			@foreach (var item in tileContent){
+				
+				@renderTileContent(item);
 				
 					}
-				</ul>
-			</div>
+			</ul>
 		</div>
 	}
 		
@@ -158,7 +156,7 @@
 	
 
 	if (src!=""){
-		<li class="cmp-tile-@(crop.ToLower())">
+		<li class="cmp-tile-@(crop.ToLower())"><span>
 		@if (url==""){
 			<span class="cmp-tile-image"><img src="@src" alt="@(caption=="" ? "*" : caption)"/></span>
 			<span class="cmp-tile-caption">@caption</span>
@@ -166,7 +164,7 @@
 			<a href="@url" class="cmp-tile-image"><img src="@src" alt="*"/></a>
 			<a href="@url" class="cmp-tile-caption">@caption</a>
 		}
-		</li>
+		</span></li>
 	}
 
 }

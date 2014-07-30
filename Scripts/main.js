@@ -92,12 +92,13 @@ require(["jquery"], function() {
 		} 
 
 		function positionContentTiles(wd){
-
+console.log(wd);
 			var $el = $(".cmp-tile");
 			var dbl = $el.is(".cmp-tile-smallTiles");
 			if (dbl){
 				wd*= 2;
 			}
+console.log(wd);
 			var $li = $el.find("li"), gd = [], rw = 0;
 
 			// add empty initial rows
