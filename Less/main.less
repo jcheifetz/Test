@@ -374,8 +374,6 @@ noscript {
 
 .footer-container {
     position: relative;
-    display: none;
-
 }
 
 /* ===============
@@ -621,13 +619,7 @@ noscript {
         padding: 0;
         width: 100%;
         height: 100%;
-        li {
-            width: 100%;
-            .box-sizing; 
-            span {
-                position: relative;
-            }
-        }
+
         .cmp-tile-image {
             display: block;
         }
@@ -652,6 +644,13 @@ noscript {
         }
         img {
             width: 100%;
+        }
+    }
+     li {
+        width: 100%;
+        .box-sizing; 
+        span {
+            position: relative;
         }
     }
 }
@@ -685,37 +684,69 @@ noscript {
     @htS: 40%;
     @mg: 11px;
     .cmp-tile-y1 {
-        margin-top: (@htS*1);
+        margin-top: (@htS);
         padding-top: (@mg);
-    }     
+    }   
+    .cmp-tile-height-1 {
+        margin-bottom: (@htS);
+        padding-bottom: (@mg);
+    }
     .cmp-tile-y2 {
         margin-top: (@htS*2);
         padding-top: (@mg*2);
     }
+    .cmp-tile-height-2 {
+        margin-bottom: (@htS*2);
+        padding-bottom: (@mg*2);
+    }    
     .cmp-tile-y3 {
         margin-top: (@htS*3);
         padding-top: (@mg*3);
     }
+    .cmp-tile-height-3 {
+        margin-bottom: (@htS*3);
+        padding-bottom: (@mg*3);
+    }    
     .cmp-tile-y4 {
         margin-top: (@htS*4);
         padding-top: (@mg*4);
     } 
+    .cmp-tile-height-4 {
+        margin-bottom: (@htS*4);
+        padding-bottom: (@mg*4);
+    }    
     .cmp-tile-y5 {
         margin-top: (@htS*5);
         padding-top: (@mg*5);
-    }       
+    }    
+    .cmp-tile-height-5 {
+        margin-bottom: (@htS*5);
+        padding-bottom: (@mg*5);
+    }
     .cmp-tile-y6 {
         margin-top: (@htS*6);
         padding-top: (@mg*6);
     } 
+    .cmp-tile-height-6 {
+        margin-bottom: (@htS*6);
+        padding-bottom: (@mg*6);
+    }
     .cmp-tile-y7 {
         margin-top: (@htS*7);
         padding-top: (@mg*7);
     } 
+    .cmp-tile-height-7 {
+        margin-bottom: (@htS*7);
+        padding-bottom: (@mg*7);
+    }
     .cmp-tile-y8 {
         margin-top: (@htS*8);
         padding-top: (@mg*8);
     } 
+    .cmp-tile-height-8 {
+        margin-bottom: (@htS*8);
+        padding-bottom: (@mg*8);
+    }
 }
 
 

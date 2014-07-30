@@ -92,13 +92,14 @@ require(["jquery"], function() {
 		} 
 
 		function positionContentTiles(wd){
-console.log(wd);
+//console.log(wd);
 			var $el = $(".cmp-tile");
+			var $ul = $el.find("ul");
 			var dbl = $el.is(".cmp-tile-smallTiles");
 			if (dbl){
 				wd*= 2;
 			}
-console.log(wd);
+//console.log(wd);
 			var $li = $el.find("li"), gd = [], rw = 0;
 
 			// add empty initial rows
@@ -110,20 +111,22 @@ console.log(wd);
 				addToGrid( $li.eq(i) );
 			}
 
+			// add row could to ul
+			$ul.attr("class","").addClass("cmp-tile-height-"+(rw+1).toString());
+
 			function addToGrid($liEl){
 				var added = false;
 				var ptr = $liEl.is(".cmp-tile-portrait");
 
 				// clear old styling
-				$liEl.attr("class","");
-				$liEl.addClass( ptr ? "cmp-tile-portrait" : "cmp-tile-landscape");
+				$liEl.attr("class","").addClass( ptr ? "cmp-tile-portrait" : "cmp-tile-landscape");
 
 				for (var y=0; y<=rw; y++){
 					for (var x=0; x<wd; x++){
 						//console.log(x+"<"+y+"<"+rw+"<"+(rw>y).toString());
 
 						if (gd[y][x]==0 && (!ptr || (ptr && rw>y && gd[y+1][x]==0))){
-							console.log(x+"<"+y);
+							//console.log(x+"<"+y);
 							gd[y][x]=1;
 							// if portrait fill row below
 							if ($liEl.is(".cmp-tile-portrait")){
