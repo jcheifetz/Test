@@ -180,7 +180,7 @@ a.icons-Y:before { content: @icon-youtube; }
 }
 
 .hide {
-	display: none;
+    display: none;
 }
 .hide2 {
     display: none!important;
@@ -257,8 +257,8 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 html {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -377,6 +377,7 @@ noscript {
 
 .footer-container {
     position: relative;
+    display: none;
 
 }
 
@@ -625,7 +626,7 @@ noscript {
         width: 100%;
         height: 100%;
         li {
-            float: left;
+            position: absolute;
             width: 100%;
             .box-sizing; 
             padding-right: 6px; 
@@ -639,9 +640,6 @@ noscript {
             height: 22px;
             position: relative;
             background: #fff;
-        }
-        .cmp-tile-landscape .cmp-tile-caption {
-            margin-top: -12px;
         }
 
 
@@ -658,11 +656,54 @@ noscript {
     }
 }
 
-.cmp-tile.cmp-tile-2colMobile {
+.cmp-tile.cmp-tile-smallTiles {
     li {
         width: 50%;
+        position: absolute;
+        display: none;
     }
 }
+
+@htS: 30%;
+@mg: 10px;
+
+.cmp-tile-x0 {
+    left: 0;;
+}
+.cmp-tile-x1 {
+    left: 50%;
+}
+
+
+.cmp-tile-y0 {
+    margin-top: 0;
+} 
+.cmp-tile-y1 {
+    margin-top: ((@htS*1)+(@mg*0));
+}     
+.cmp-tile-y2 {
+    margin-top: ((@htS*2)+(@mg*1));
+}
+.cmp-tile-y3 {
+    margin-top: ((@htS*3)+(@mg*2));
+}
+.cmp-tile-y4 {
+    margin-top: ((@htS*4)+(@mg*3));
+} 
+.cmp-tile-y5 {
+    margin-top: ((@htS*5)+(@mg*4));
+}       
+.cmp-tile-y6 {
+    margin-top: ((@htS*6)+(@mg*5));
+} 
+.cmp-tile-y7 {
+    margin-top: ((@htS*7)+(@mg*6));
+} 
+.cmp-tile-y8 {
+    margin-top: ((@htS*8)+(@mg*7));
+} 
+
+
 
 
 

@@ -7,9 +7,6 @@ require.config({
 require(["jquery"], function() {
 	$(function(){
 
-		// lazy load images
-		wrO.unveil();
-
 		// menu
 		$("a.cmp-show-nav").on("click", function(){
 			var $a = $(this);
@@ -19,18 +16,38 @@ require(["jquery"], function() {
 				$m.parent().show();
 				$m.animate({left: "0"}, 250 
 				);
-
 			} else {
-
 				$m.animate({left: "-260px"}, 250,
 					function(){
 						$m.parent().hide();
 					});
-
 			}
-
-
 		});
+
+		// content tiles
+		if ($(".cmp-tile").length){
+			require(["jquery","vendor/enquire.min"], function(){
+
+				enquire.register("screen and (max-width:767px)", {
+					match: function(){ 
+						positionContentTiles(1);
+					}
+				});
+				enquire.register("screen and (min-width:768px) and (max-width:1023px)", {
+					match: function(){ 
+						positionContentTiles(2);
+					}
+				});
+				enquire.register("screen and (min-width:1024px)", {
+					match: function(){ 
+						positionContentTiles(3);
+					}
+				});
+			});
+		}
+
+
+
 		// email signup
 		var $fm = $(".cmp-newsletterSignup"), 
 			$a = $fm.find("a"),
@@ -73,39 +90,66 @@ require(["jquery"], function() {
 		    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		    return re.test(email);
 		} 
+
+		function positionContentTiles(wd){
+
+			var $el = $(".cmp-tile");
+			var dbl = $el.is(".cmp-tile-smallTiles");
+			if (dbl){
+				wd*= 2;
+			}
+			var $li = $el.find("li"), gd = [], rw = 0;
+
+			// add empty initial rows
+			for (var i=0; i<=rw; i++){
+				addGridRowData(i);	
+			}
+
+			for (var i=0;i<$li.length;i++){
+				addToGrid( $li.eq(i) );
+			}
+
+			function addToGrid($liEl){
+				var added = false;
+				for (var y=0; y<=rw; y++){
+					for (var x=0; x<wd; x++){
+						//console.log(x+"<"+y+"<"+rw+"<"+(rw>y).toString());
+
+						if (gd[y][x]==0 && (!$liEl.is(".cmp-tile-portrait") || ($liEl.is(".cmp-tile-portrait") && rw>y && gd[y+1][x]==0))){
+							console.log(x+"<"+y);
+							gd[y][x]=1;
+							// if portrait fill row below
+							if ($liEl.is(".cmp-tile-portrait")){
+								if (y==rw){
+									addGridRowData(++rw);
+								}
+								gd[y+1][x]=2;
+							}
+
+							$liEl.addClass("cmp-tile-x"+x).addClass("cmp-tile-y"+y).show();
+							// break
+							added = true;
+							x = 1000;
+							y = 1000;
+						} 
+					}
+				}
+				// add another row if not added
+				if (!added){
+					addGridRowData(++rw);
+					addToGrid($liEl);
+				}
+			}
+
+			function addGridRowData(y){
+				gd[y] = [];
+				for (var x=0; x<wd; x++){
+					gd[y].push(0);
+				}
+			}
+		}
+
+
 	});
 });
 
-// window ready functionality / reusable in case of dynamic content loaded into page
-var wrO = {
-	unveil: function(){
-		if ($("img.unveil").length!=0){
-			require(["vendor/jquery.unveil.min"], function(){
-				// don't load retina images for mobile
-				// to conserve bandwidth
-				// logo bg images still retina
-				if (window.innerWidth<768){
-					$("img.unveil:not(.allowMobileRetina)").each(function(i,e){
-						e.setAttribute("data-src-retina","");
-					});
-				}
-				$("img.unveil").removeClass("unveil").unveil();
-			});	
-		}
-	}
-}
-
-
-
-// delay loading this functionality until window.load
-var wlFn = function(){
-
-}
-
-if (document.readyState!="complete"){
-	window.onload = function(){
-		//wlFn();
-	}
-} else {
-	//wlFn();
-}

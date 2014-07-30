@@ -32,7 +32,7 @@
 	@* render image tile content *@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
-		<div class="cmp-tile clearfix @if(content.TwoColumnMobileTiles){@("cmp-tile-2colMobile");} @if(content.SixColumnDesktopTiles){@("cmp-tile-6colDesktop");}">
+		<div class="cmp-tile clearfix @if(content.smallTiles){@("cmp-tile-smallTiles");}">
 			<div>
 				<ul>
 					@foreach (var item in tileContent){
