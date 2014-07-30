@@ -112,11 +112,17 @@ console.log(wd);
 
 			function addToGrid($liEl){
 				var added = false;
+				var ptr = $liEl.is(".cmp-tile-portrait");
+
+				// clear old styling
+				$liEl.attr("class","");
+				$liEl.addClass( ptr ? "cmp-tile-portrait" : "cmp-tile-landscape");
+
 				for (var y=0; y<=rw; y++){
 					for (var x=0; x<wd; x++){
 						//console.log(x+"<"+y+"<"+rw+"<"+(rw>y).toString());
 
-						if (gd[y][x]==0 && (!$liEl.is(".cmp-tile-portrait") || ($liEl.is(".cmp-tile-portrait") && rw>y && gd[y+1][x]==0))){
+						if (gd[y][x]==0 && (!ptr || (ptr && rw>y && gd[y+1][x]==0))){
 							console.log(x+"<"+y);
 							gd[y][x]=1;
 							// if portrait fill row below
