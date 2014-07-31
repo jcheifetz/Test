@@ -21,25 +21,23 @@
         <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
 		
-		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/main.css" media="screen"> 
-        <link rel="stylesheet" href="https://fast.fonts.net/t/1.css?apiType=css&projectid=b4f91351-0b44-4ce3-8a13-8812f3244e1d">
-
-			
+		<link rel="stylesheet" href="/css/normalize.css" media="all">
+		<link rel="stylesheet" href="/css/main.css" media="all"> 
+        <link rel="stylesheet" href="https://fast.fonts.net/t/1.css?apiType=css&projectid=b4f91351-0b44-4ce3-8a13-8812f3244e1d">		
 <script>
     var ipad = false;
 
     if (screen.width >= 768 || screen.height >= 768) {
         ipad = true;
-        document.write('<link rel="stylesheet" href="/css/screen-tablet_portrait.css" media="only screen and (min-width: 768px)">');
+        document.write('<link rel="stylesheet" href="/css/screen-tablet_portrait.css" media="only all and (min-width: 768px)">');
         document.write('<link rel="stylesheet" href="/css/screen-tablet_landscape.css" '
-            + 'media="only screen and (min-width: 1024px),'
-            + 'only screen and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 1.2),'
-            + 'only screen and (orientation:landscape) and (min-device-width:768px) and (max-device-width:1024px) ">');
+            + 'media="only all and (min-width: 1024px),'
+            + 'only all and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 1.2),'
+            + 'only all and (orientation:landscape) and (min-device-width:768px) and (max-device-width:1024px) ">');
     }
     if (screen.width >= 1200 || screen.height >= 1200) {
         ipad = false;
-        document.write('<link rel="stylesheet" href="/css/screen-desktop.css" media="only screen and (min-width: 1200px)">');
+        document.write('<link rel="stylesheet" href="/css/screen-desktop.css" media="only all and (min-width: 1200px)">');
     }
 
 </script>
