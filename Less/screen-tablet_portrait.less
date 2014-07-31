@@ -165,171 +165,61 @@ body {
     }
 }
 
-@mg: 11px;
+
+/* cmp tile functions */
+
+.generate-tile-grid(@n, @i: 1) when (@i =< @n) {
+    @mg: 11px; 
+    .cmp-tile-y@{i} {
+        margin-top: (@ht*@i);
+        padding-top: (@mg*@i);
+    }
+    .cmp-tile-height-@{i} {
+        margin-bottom: (@ht*@i);
+        padding-bottom: (@mg*@i);
+    } 
+    .generate-tile-grid(@n, (@i + 1));
+} 
+
+.generate-tile-x(@n, @i: 1) when (@i =< @n) {
+    @mg: 6px; 
+    .cmp-tile-x@{i} {
+        left: (@wd*@i);
+        span {
+            left: (@mg*@i);
+        }
+    }
+    .generate-tile-x(@n, (@i + 1));
+} 
+/* end - cmp tile functions */
+
+
+
+
 .cmp-tile {
+    @wd: 50%;
+    @ht: 40.0%;
     li {
-        width: 50%;
+        width: @wd;
         position: absolute;
         display: none;
     }
-
-    .cmp-tile-x1 {
-        left: 50%;
-        span {
-            left: 6px;
-        }
-    }
-
-
-    @htS: 40.0%;
-    .cmp-tile-y1 {
-        margin-top: (@htS);
-        padding-top: (@mg);
-    }
-    .cmp-tile-height-1 {
-        margin-bottom: (@htS);
-        padding-bottom: (@mg);
-    }
-    .cmp-tile-y2 {
-        margin-top: (@htS*2);
-        padding-top: (@mg*2);
-    }
-    .cmp-tile-height-2 {
-        margin-bottom: (@htS*2);
-        padding-bottom: (@mg*2);
-    }
-    .cmp-tile-y3 {
-        margin-top: (@htS*3);
-        padding-top: (@mg*3);
-    }
-    .cmp-tile-height-3 {
-        margin-bottom: (@htS*3);
-        padding-bottom: (@mg*3);
-    }
-
-    .cmp-tile-y4 {
-        margin-top: (@htS*4);
-        padding-top: (@mg*4);
-    } 
-    .cmp-tile-height-4 {
-        margin-bottom: (@htS*4);
-        padding-bottom: (@mg*4);
-    }
-    .cmp-tile-y5 {
-        margin-top: (@htS*5);
-        padding-top: (@mg*5);
-    }
-    .cmp-tile-height-5 {
-        margin-bottom: (@htS*5);
-        padding-bottom: (@mg*5);
-    }
-    .cmp-tile-y6 {
-        margin-top: (@htS*6);
-        padding-top: (@mg*6);
-    } 
-    .cmp-tile-height-6 {
-        margin-bottom: (@htS*6);
-        padding-bottom: (@mg*6);
-    }
-    .cmp-tile-y7 {
-        margin-top: (@htS*7);
-        padding-top: (@mg*7);
-    } 
-    .cmp-tile-height-7 {
-        margin-bottom: (@htS*7);
-        padding-bottom: (@mg*7);
-    }
-    .cmp-tile-y8 {
-        margin-top: (@htS*8);
-        padding-top: (@mg*8);
-    } 
-    .cmp-tile-height-8 {
-        margin-bottom: (@htS*8);
-        padding-bottom: (@mg*8);
-    }
+    .generate-tile-x(1);
+    .generate-tile-grid(10);
 }
 
 
 .cmp-tile.cmp-tile-smallTiles {
     padding-right: 12px;
     .box-sizing;
+
+    @wd: 25%;
+    @ht: 20.0%;
     li {
-        width: 25%;
+        width: @wd;
     }
-    .cmp-tile-x1 {
-        left: 25%;
-    }
-    .cmp-tile-x2 {
-        left: 50%;
-        span {
-            left: 12px;
-        }
-    }
-    .cmp-tile-x3 {
-        left: 75%;
-        span {
-            left: 18px;
-        }
-    }
-
-
-    @htS: 20%;
-    .cmp-tile-y1 {
-        margin-top: (@htS);
-    }
-    .cmp-tile-height-1 {
-        margin-bottom: (@htS);
-        padding-bottom: (@mg);
-    }
-    .cmp-tile-y2 {
-        margin-top: (@htS*2);
-    }
-    .cmp-tile-height-2 {
-        margin-bottom: (@htS*2);
-        padding-bottom: (@mg*2);
-    }
-    .cmp-tile-y3 {
-        margin-top: (@htS*3);
-    }
-    .cmp-tile-height-3 {
-        margin-bottom: (@htS*3);
-        padding-bottom: (@mg*3);
-    }
-    .cmp-tile-y4 {
-        margin-top: (@htS*4);
-    } 
-    .cmp-tile-height-4 {
-        margin-bottom: (@htS*4);
-        padding-bottom: (@mg*4);
-    }
-    .cmp-tile-y5 {
-        margin-top: (@htS*5);
-    }      
-    .cmp-tile-height-5 {
-        margin-bottom: (@htS*5);
-        padding-bottom: (@mg*5);
-    }
-    .cmp-tile-y6 {
-        margin-top: (@htS*6);
-    } 
-    .cmp-tile-height-6 {
-        margin-bottom: (@htS*6);
-        padding-bottom: (@mg*6);
-    }
-    .cmp-tile-y7 {
-        margin-top: (@htS*7);
-    } 
-    .cmp-tile-height-7 {
-        margin-bottom: (@htS*7);
-        padding-bottom: (@mg*7);
-    }
-    .cmp-tile-y8 {
-        margin-top: (@htS*8);
-    } 
-    .cmp-tile-height-8 {
-        margin-bottom: (@htS*8);
-        padding-bottom: (@mg*8);
-    }
+    .generate-tile-x(3);
+    .generate-tile-grid(10);
 }
 
 
