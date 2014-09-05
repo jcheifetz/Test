@@ -46,7 +46,10 @@ require(["jquery"], function() {
 			});
 		}
 
-
+		// slimmage
+		require(["vendor/slimmage.min"], function(){
+			slimmage.checkResponsiveImages(250);
+		});
 
 		// email signup
 		var $fm = $(".cmp-newsletterSignup"), 
@@ -102,7 +105,7 @@ require(["jquery"], function() {
 //console.log(wd);
 			var $li = $el.find("li"), gd = [], rw = 0;
 
-			// add empty initial rows
+			// add =0 initial rows
 			for (var i=0; i<=rw; i++){
 				addGridRowData(i);	
 			}
@@ -117,23 +120,32 @@ require(["jquery"], function() {
 			function addToGrid($liEl){
 				var added = false;
 				var ptr = $liEl.is(".cmp-tile-portrait");
+				var big = !ptr && $liEl.is(".cmp-tile-big");
 
 				// clear old styling
 				$liEl.attr("class","").addClass( ptr ? "cmp-tile-portrait" : "cmp-tile-landscape");
-
+				if (big){
+					$liEl.addClass("cmp-tile-big");
+				}
 				for (var y=0; y<=rw; y++){
 					for (var x=0; x<wd; x++){
 						//console.log(x+"<"+y+"<"+rw+"<"+(rw>y).toString());
 
-						if (gd[y][x]==0 && (!ptr || (ptr && rw>y && gd[y+1][x]==0))){
+						if (gd[y][x]==0 && ((!ptr && !big) || (ptr && rw>y && gd[y+1][x]==0) || (big && x<wd-1 && rw>y && gd[y][x+1]==0 && gd[y+1][x]==0 && gd[y+1][x+1]==0))){
 							//console.log(x+"<"+y);
 							gd[y][x]=1;
-							// if portrait fill row below
-							if ($liEl.is(".cmp-tile-portrait")){
+							if (big){
+								gd[y][x+1]=2;
+							}	
+							// if big or portrait fill row below
+							if (ptr || big){
 								if (y==rw){
 									addGridRowData(++rw);
 								}
 								gd[y+1][x]=2;
+								if (big){
+									gd[y+1][x+1]=2;
+								}
 							}
 
 							$liEl.addClass("cmp-tile-x"+x).addClass("cmp-tile-y"+y).show();

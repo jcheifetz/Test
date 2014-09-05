@@ -207,7 +207,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
-    padding: 5px 12px 20px 12px;
+    padding: 5px 12px 0 12px;
 }
 
 ::-moz-selection {
@@ -408,6 +408,7 @@ noscript {
 
 .cmp-footer4 {
     margin-top: 40px;
+    padding-bottom: 30px;
     text-align: center;
     width: 100%;
     p {
@@ -666,6 +667,10 @@ noscript {
         .cmp-tile-landscape .cmp-tile-caption {
             margin-top: -12px;
             z-index:1;
+        }
+        .cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
+            width: 101%;
+            margin-top: -6px;
         }
 
         .cmp-tile-caption {

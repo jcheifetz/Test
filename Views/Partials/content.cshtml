@@ -127,13 +127,14 @@
 	string src =  "";	
 	string url = "";
 	string crop = "";
+	bool big;
 	
 	if (item.DocumentTypeAlias=="ContentTile"){
 		if (item.HasValue("media")){
 			dynamic media = Umbraco.Media(item.media);
 			caption = item.caption.ToString();
 			crop = item.portraitOrientation ? "Portrait" : "Landscape";
-			src =  media.GetResponsiveCropUrl(crop, "image");
+			src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
 			url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
 		}
 	}
@@ -147,15 +148,17 @@
 			if (content.HasValue("media")){
 				caption = content.caption.ToString();
 				crop = content.portraitOrientation ? "Portrait" : "Landscape";
-				src =  media.GetResponsiveCropUrl(crop, "image");
+				src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
 				url = content.Url;
 			}
 		}
 	}
 	
+	big = item.big;
+
 
 	if (src!=""){
-		<li class="cmp-tile-@(crop.ToLower())"><span>
+		<li class="cmp-tile-@(crop.ToLower())@if(big){@(" cmp-tile-big");}"><span>
 		@if (url==""){
 			<span class="cmp-tile-image"><img src="@src" alt="@(caption=="" ? "*" : caption)"/></span>
 			<span class="cmp-tile-caption">@caption</span>
