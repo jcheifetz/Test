@@ -77,18 +77,19 @@ body {
         width: 100%;
         border-bottom: 1px solid @colorLighterColor;
         position: static;
-        padding: 0;
+        padding: 11px 0 0 0;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
+        font-size: 0.9em;
     }
 
     .nav-2 {
         position: absolute;
         margin-left: 0;
-        border-bottom: 1px solid @colorLightColor;
+        border-bottom: 1px solid @colorLighterColor;
         padding-bottom: 0;
-        top: 94px;
+        top: 90px;
         left: 0;
         width: 100%;
         font-size: 80%;
@@ -137,25 +138,22 @@ body {
 }
 
 .cmp-footer1, .cmp-footer2, .cmp-footer3 {
-    top: 20px;
+    margin-top: 0;
+    top: 0;
     width: 225px;
 }
-.cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
+.cmp-footer2, .cmp-footer3, .cmp-footer4 {
     position: absolute;
 }
-.cmp-footer1 { 
-    left: 0px; 
-}
+
 .cmp-footer2 {
     left: 225px; 
-    margin-top: 0;
 } 
 .cmp-footer3 {
     left: 440px;
-    margin-top: 0;
 } 
 .cmp-footer4 {
-    top: 150px;
+    bottom: 0;
     margin-top: 0;
 }
 
@@ -169,8 +167,7 @@ body {
 
 /* cmp tile functions */
 
-.generate-tile-grid(@n, @i: 1) when (@i =< @n) {
-    @mg: 11px; 
+.generate-tile-grid(@n, @i: 1) when (@i =< @n) { 
     .cmp-tile-y@{i} {
         margin-top: (@ht*@i);
         padding-top: (@mg*@i);
@@ -183,12 +180,9 @@ body {
 } 
 
 .generate-tile-x(@n, @i: 1) when (@i =< @n) {
-    @mg: 6px; 
+    @mg: 10px; 
     .cmp-tile-x@{i} {
-        left: (@wd*@i);
-        >span {
-            left: (@mg*@i);
-        }
+        left: ((@wd+@mg)*@i);
     }
     .generate-tile-x(@n, (@i + 1));
 } 
@@ -198,18 +192,20 @@ body {
 
 
 .cmp-tile {
-    @wd: 50%;
-    @ht: 40.0%;
+    .cmp-tile-landscape .cmp-tile-caption {
+        margin-top: -13px;
+        z-index:1;
+    }
+
+    @ht: 223px;
+    @wd: 320px;
     li {
         width: @wd;
         position: absolute;
         display: none;
     }
     li.cmp-tile-big {
-        width: @wd*2;
-        img {
-            width: 100.6%;
-        }
+        width: @wd*2+@mg;
     }
     .generate-tile-x(1);
     .generate-tile-grid(10);

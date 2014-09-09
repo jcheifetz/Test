@@ -52,11 +52,9 @@ body {
 }
 .cmp-footer2 {
     left: 318px; 
-    margin-top: 0;
 } 
 .cmp-footer3 {
     left: 634px;
-    margin-top: 0;
 } 
 .cmp-footer4 {
 
@@ -71,12 +69,12 @@ body {
 .cmp-2col {
     .cmp-2col-col1 {
         float: left;
-        width: 62.7%;
+        width: 62.4%;
         margin-right: 5%
     } 
     .cmp-2col-col2 {
         float: left;
-        width: 32.3%;
+        width: 32.6%;
         margin-top: 0;
     } 
     .cmp-large-text {
@@ -99,10 +97,12 @@ body {
 }
 
 
+
+
 /* cmp tile functions */
 
 .generate-tile-grid(@n, @i: 1) when (@i =< @n) {
-    @mg: 11px; 
+
     .cmp-tile-y@{i} {
         margin-top: (@ht*@i);
         padding-top: (@mg*@i);
@@ -117,30 +117,31 @@ body {
 .generate-tile-x(@n, @i: 1) when (@i =< @n) {
     @mg: 6px; 
     .cmp-tile-x@{i} {
-        left: (@wd*@i);
-        >span {
-            left: (@mg*@i);
-        }
+        left: ((@wd+@mg)*@i);
     }
     .generate-tile-x(@n, (@i + 1));
 } 
 /* end - cmp tile functions */
 
-
+        .cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
+            margin-top: -4px!important;
+        }
 
 .cmp-tile {
-    @ht: 26.5%;
-    @wd: 33.33%;
+
+
+    @ht: 229px;
+    @wd: 322px;
     li {
         width: @wd;
     }
     li.cmp-tile-big {
-        width: @wd*2;
+        width: @wd*2+@mg;
     }
     .generate-tile-x(2);
     .generate-tile-grid(10);
 }
-
+/*
 .cmp-tile.cmp-tile-smallTiles {
     padding-right: 30px;
     @ht: 13.3%;
@@ -151,5 +152,5 @@ body {
     .generate-tile-x(5);
     .generate-tile-grid(10);
 }
-
+*/
 

@@ -31,12 +31,9 @@
 
 
 .cmp-footer1, .cmp-footer2, .cmp-footer3 {
-    top: 20px;
     width: 360px;
 }
-.cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
-    position: absolute;
-}
+
 .cmp-footer1 { 
     left: 0px; 
 }
@@ -52,3 +49,63 @@
         width: 208px;
     }
 }
+
+
+
+
+
+/* cmp tile functions */
+
+
+
+.generate-tile-grid(@n, @i: 1) when (@i =< @n) {
+
+    .cmp-tile-y@{i} {
+        margin-top: (@ht*@i);
+        padding-top: (@mg*@i);
+    }
+    .cmp-tile-height-@{i} {
+        margin-bottom: (@ht*@i);
+        padding-bottom: (@mg*@i);
+    } 
+    .generate-tile-grid(@n, (@i + 1));
+} 
+
+.generate-tile-x(@n, @i: 1) when (@i =< @n) {
+    @mg: 10px; 
+    .cmp-tile-x@{i} {
+        left: ((@wd+@mg)*@i);
+    }
+    .generate-tile-x(@n, (@i + 1));
+} 
+/* end - cmp tile functions */
+
+        .cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
+            margin-top: -8px!important;
+        }
+
+.cmp-tile {
+
+    @ht: 250px;
+    @wd: 360px;
+    li {
+        width: @wd;
+    }
+    li.cmp-tile-big {
+        width: @wd*2+@mg;
+    }
+    .generate-tile-x(2);
+    .generate-tile-grid(10);
+}
+/*
+.cmp-tile.cmp-tile-smallTiles {
+    padding-right: 30px;
+    @ht: 13.3%;
+    @wd: 16.666%;
+    li {
+        width: @wd;
+    }
+    .generate-tile-x(5);
+    .generate-tile-grid(10);
+}
+*/
