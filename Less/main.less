@@ -292,7 +292,7 @@ noscript {
         margin: 0;
         padding: 0 0 5px 0;
         text-align: center;
-        font-size: 7em;
+        font-size: 7.1em;
         line-height: 0.55em;
         border-bottom: 1px solid @colorLighterColor;
         height: 62px;
@@ -344,7 +344,7 @@ noscript {
         -moz-box-shadow: 5px 5px 20px 0px rgba(50, 50, 50, 0.68);
         box-shadow: 5px 5px 20px 0px rgba(50, 50, 50, 0.68);
         >li {
-            margin-bottom: 15px;
+            margin-bottom: 7px;
             >a {
                 text-transform: uppercase;
                 &:before { 
@@ -357,7 +357,7 @@ noscript {
     .nav-2 {
         margin: 15px 0 15px 10px;
         li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -385,6 +385,16 @@ noscript {
     padding-top: 20px;
 }
 
+.footer-container .wrapper {
+    border-top: 1px solid @colorLighterColor;
+    padding-top: 23px;
+}
+
+.footer-content {
+
+    margin-bottom: 30px;
+}
+
 .cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
     .colorLight;
     .sans1;
@@ -409,14 +419,16 @@ noscript {
 
 .cmp-footer4 {
     margin-top: 40px;
-    padding-bottom: 30px;
     text-align: center;
     width: 100%;
     p {
         display: inline;
     }
     a {
-        text-decoration: underline;
+        border-bottom: 1px solid @colorLighterColor;
+        &:hover {
+            border-bottom-color: @colorRedColor;
+        }
     }
 }
 
@@ -520,7 +532,13 @@ noscript {
             }
         }
     }
-
+    .cmp-text-more span,.cmp-text-less{
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+            .colorRed;
+        }
+    }
 
 
 }
@@ -551,6 +569,7 @@ noscript {
         line-height: 1em;
         .inlineBlock;
         &:hover {
+            color: @colorRedColor;
             border-bottom: 2px solid @colorRedColor;
         }
     }
