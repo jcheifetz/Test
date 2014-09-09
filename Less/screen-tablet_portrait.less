@@ -180,7 +180,7 @@ body {
 } 
 
 .generate-tile-x(@n, @i: 1) when (@i =< @n) {
-    @mg: 10px; 
+
     .cmp-tile-x@{i} {
         left: ((@wd+@mg)*@i);
     }
@@ -189,16 +189,15 @@ body {
 /* end - cmp tile functions */
 
 
-
+.cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
+    margin-top: -5px!important;
+}
 
 .cmp-tile {
-    .cmp-tile-landscape .cmp-tile-caption {
-        margin-top: -13px;
-        z-index:1;
-    }
 
-    @ht: 223px;
-    @wd: 320px;
+
+    @ht: 243px;
+    @wd: 350px;
     li {
         width: @wd;
         position: absolute;
@@ -207,6 +206,7 @@ body {
     li.cmp-tile-big {
         width: @wd*2+@mg;
     }
+    @mg: 10px; 
     .generate-tile-x(1);
     .generate-tile-grid(10);
 }
@@ -214,12 +214,15 @@ body {
 
 .cmp-tile.cmp-tile-smallTiles {
     padding-right: 12px;
-
-    @wd: 25%;
-    @ht: 20.0%;
+    @ht: 115px;
+    @wd: 158px;
     li {
         width: @wd;
     }
+    li.cmp-tile-big {
+        width: @wd*2+@mg;
+    }
+    @mg: 6px; 
     .generate-tile-x(3);
     .generate-tile-grid(10);
 }

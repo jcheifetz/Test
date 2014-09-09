@@ -638,7 +638,7 @@ noscript {
 /* cmp tile functions */
 
 .generate-tile-grid(@n, @i: 1) when (@i =< @n) {
-    @mg: 11px; 
+    @mg: 2%; 
     .cmp-tile-y@{i} {
         margin-top: (@ht*@i);
         padding-top: (@mg*@i);
@@ -651,12 +651,9 @@ noscript {
 } 
 
 .generate-tile-x(@n, @i: 1) when (@i =< @n) {
-    @mg: 6px; 
+    @mg: 2%; 
     .cmp-tile-x@{i} {
-        left: (@wd*@i);
-        span {
-            left: (@mg*@i);
-        }
+        left: ((@wd+@mg)*@i);
     }
     .generate-tile-x(@n, (@i + 1));
 } 
@@ -664,6 +661,11 @@ noscript {
 
 
 .cmp-tile {
+    .cmp-tile-landscape .cmp-tile-caption {
+        margin-top: -13px;
+        z-index:1;
+    }
+
     width: 100%;
 
     ul {
@@ -715,18 +717,17 @@ noscript {
 .cmp-tile.cmp-tile-smallTiles {
     padding-right: 6px;
     .box-sizing;
-    @wd: 50%;
-    @ht: 40.0%;
+    @wd: 49%;
+    @ht: 33.9%;
 
     li {
         width: @wd;
         position: absolute;
         display: none;
-        span {
-            position: relative;
-        }
     }
-
+    li.cmp-tile-big {
+        width: @wd*2+@mg;
+    }
     .generate-tile-x(1);
     .generate-tile-grid(10);
 }

@@ -80,9 +80,9 @@
 } 
 /* end - cmp tile functions */
 
-        .cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
-            margin-top: -8px!important;
-        }
+.cmp-tile-landscape.cmp-tile-big .cmp-tile-caption {
+    margin-top: -8px!important;
+}
 
 .cmp-tile {
 
@@ -97,15 +97,17 @@
     .generate-tile-x(2);
     .generate-tile-grid(10);
 }
-/*
+
 .cmp-tile.cmp-tile-smallTiles {
     padding-right: 30px;
-    @ht: 13.3%;
-    @wd: 16.666%;
+    @ht: 125px;
+    @wd: 175px;
     li {
         width: @wd;
+    }
+    li.cmp-tile-big {
+        width: @wd*2+@mg;
     }
     .generate-tile-x(5);
     .generate-tile-grid(10);
 }
-*/
