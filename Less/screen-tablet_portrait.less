@@ -1,4 +1,5 @@
 @colorLightColor: #848483;
+@colorLighterColor: #bbb;
 @colorDarkColor: #231F20;
 @colorRedColor: #df0021;
 
@@ -74,7 +75,7 @@ body {
 
     .nav-1 {
         width: 100%;
-        border-bottom: 1px solid @colorLightColor;
+        border-bottom: 1px solid @colorLighterColor;
         position: static;
         padding: 0;
         -webkit-box-shadow: none;
@@ -185,7 +186,7 @@ body {
     @mg: 6px; 
     .cmp-tile-x@{i} {
         left: (@wd*@i);
-        span {
+        >span {
             left: (@mg*@i);
         }
     }
@@ -207,7 +208,7 @@ body {
     li.cmp-tile-big {
         width: @wd*2;
         img {
-            width: 101.1%;
+            width: 100.6%;
         }
     }
     .generate-tile-x(1);
