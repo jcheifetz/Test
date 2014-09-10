@@ -26,14 +26,21 @@ require(["jquery"], function() {
 
 		// more button
 		var $txt = $(".cmp-text").eq(0);
+		if ($txt.closest(".cmp-3col").length==1){
+			return;
+		}
 		if ($txt.length && $txt.text().length>200){
 			var html = $txt.html();
 			
+
 			var ind = html.indexOf(" ", 200);
 			if (ind!=-1){
 				var html1 = $txt.html().substring(0,ind);
 				html1+="<span class=\"cmp-text-more\">...<span>[more]</span></span>";
+				
+
 				var html1b = $txt.html(html1).html();
+				
 				ind = html.toLowerCase().lastIndexOf("</p>");
 				
 				html= html.substring(0,ind)+"<span class=\"cmp-text-less\">[less]</span>"+html.substring(ind,html.length);

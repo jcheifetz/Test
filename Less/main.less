@@ -297,10 +297,10 @@ noscript {
         border-bottom: 1px solid @colorLighterColor;
         height: 62px;
         a {
+            display: inline;
             .icons;
             .colorRed;
             text-decoration: none;
-            .inlineBlock;
             font-weight: normal;
             &:before { content: @icon-logo; } 
             span {
@@ -308,6 +308,7 @@ noscript {
             }
         }
     }
+
     nav {
         display: none;
         overflow: hidden;
@@ -387,7 +388,7 @@ noscript {
 
 .footer-container .wrapper {
     border-top: 1px solid @colorLighterColor;
-    padding-top: 23px;
+    padding-top: 13px;
 }
 
 .footer-content {
@@ -398,7 +399,7 @@ noscript {
 .cmp-footer1, .cmp-footer2, .cmp-footer3, .cmp-footer4 {
     .colorLight;
     .sans1;
-    font-size: 0.7em;
+    font-size: 0.75em;
     a {
         text-decoration: none;
         .colorLight;
@@ -504,6 +505,9 @@ noscript {
         color: #00BFFF; 
         text-transform: uppercase; 
     }
+    .cmp-text-expertise {
+        line-height: 140%;
+    }
     .cmp-text-red {
         color: #DF001F;
         text-transform: uppercase;
@@ -552,7 +556,7 @@ noscript {
     .colorLight;
     font-size: 1.7em;
     line-height: 135%;
-    margin-bottom: 55px;
+    margin-bottom: 15px;
     strong {
         .serif;
         .colorRed;
@@ -564,7 +568,7 @@ noscript {
     }
     a {
         text-decoration: none;
-        border-bottom: 2px solid @colorLighterColor;
+        border-bottom: 1px solid @colorLighterColor;
         .colorLight;
         line-height: 1em;
         .inlineBlock;
@@ -583,9 +587,8 @@ noscript {
     }
 }
 .cmp-large-text.super-large {
-    font-size: 3em;
-    line-height: 1.6em;
-
+    font-size: 1.7em;
+    line-height: 1.3em;
 }
 
 .cmp-large-text-center {
@@ -605,9 +608,10 @@ noscript {
 
     }
     input {
-        width: 170px;
+        width: 160px;
         border: 1px solid @colorLighterColor;
         border-width: 0 0 1px 0;
+        border-radius: 0;
         &.invalid {
             .colorRed;
         }
@@ -691,7 +695,7 @@ noscript {
 
         .cmp-tile-caption {
             .sans1;
-            font-size: 0.8em;
+            font-size: 0.75em;
             .colorLight;
             text-decoration: none;
 
@@ -743,8 +747,8 @@ noscript {
     top: 3px;
     left: -9px;
     padding: 10px 30px 10px 10px;
-    font-size: 1.5em;
-    .colorDark;
+    font-size: 1.4em;
+    .colorLight;
     text-decoration: none;
     &:after {
         content: @icon-openMenu;
