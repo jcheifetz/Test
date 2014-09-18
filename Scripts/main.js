@@ -25,11 +25,8 @@ require(["jquery"], function() {
 		});
 
 		// more button
-		var $txt = $(".cmp-text").eq(0);
-		if ($txt.closest(".cmp-3col").length==1){
-			return;
-		}
-		if ($txt.length && $txt.text().length>200){
+		var $txt = $(".cmp-text");
+		if ($txt.length==1 && !$txt.is(".cmp-text-dont-restrict") && !$txt.closest(".cmp-3col").length==1 && $txt.length && $txt.text().length>200){
 			var html = $txt.html();
 			
 
@@ -47,8 +44,8 @@ require(["jquery"], function() {
 				$txt.data("html",html);
 				$txt.data("html1",html1b);
 			}
-
 		}
+
 		addMoreEvents();
 		function addMoreEvents(){
 			$(".cmp-text-more").on("click",function(){
@@ -134,6 +131,7 @@ require(["jquery"], function() {
 		} 
 
 		function positionContentTiles(wd){
+
 //console.log(wd);
 			var $el = $(".cmp-tile");
 			var $ul = $el.find("ul");
@@ -186,7 +184,6 @@ require(["jquery"], function() {
 									gd[y+1][x+1]=2;
 								}
 							}
-
 							$liEl.addClass("cmp-tile-x"+x).addClass("cmp-tile-y"+y).show();
 							// break
 							added = true;
