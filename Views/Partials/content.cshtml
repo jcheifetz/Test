@@ -103,7 +103,8 @@
 }
 
 @helper renderText(dynamic item) {
-	<div class="cmp-text">
+
+	<div class="cmp-text @if(item.dontRestrictHeight){@("cmp-text-dont-restrict");}">
 		@item.text
 		@if (item.showShareLinks){
 			<div class="cmp-text-social">
