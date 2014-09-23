@@ -134,12 +134,21 @@
 		if (item.HasValue("media")){
 			dynamic media = Umbraco.Media(item.media);
 			caption = item.caption.ToString();
-			src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
+			
+			if (media.DocumentTypeAlias=="AnimatedGifImage"){
+				if (crop=="Portrait"){
+					src = media.imagePortrait;	
+				} else {
+					src = media.imageLandscape.src;
+				}
+			} else {
+				src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
+			}	
+			
 			url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
 		}
 	}
 	
-
 	if (item.DocumentTypeAlias=="ContentTileAlias" && item.HasValue("alias")){
 
 		dynamic content = Umbraco.Content(item.alias);
@@ -147,7 +156,18 @@
 			dynamic media = Umbraco.Media(content.media);
 			if (content.HasValue("media")){
 				caption = content.caption.ToString();
-				src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
+				
+				if (media.DocumentTypeAlias=="AnimatedGifImage"){
+					if (crop=="Portrait"){
+						src = media.imagePortrait;	
+					} else {
+						src = media.imageLandscape.src;
+					}
+				} else {
+					src =  media.GetResponsiveCropUrl(crop, "umbracoFile");
+				}	
+			
+			url = item.Children.Where("DocumentTypeAlias==\"PageContent\"").Count()!=0 ? item.Url : "";
 				url = content.Url;
 			}
 		}
