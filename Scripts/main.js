@@ -134,26 +134,34 @@ require(["jquery"], function() {
 
 //console.log(wd);
 			var $el = $(".cmp-tile");
-			var $ul = $el.find("ul");
+			var $ulAll = $el.find("ul");
 			var dbl = $el.is(".cmp-tile-smallTiles");
 			if (dbl){
 				wd*= 2;
 			}
-//console.log(wd);
-			var $li = $el.find("li"), gd = [], rw = 0;
 
-			// add =0 initial rows
-			for (var i=0; i<=rw; i++){
-				addGridRowData(i);	
+			for (var ulInd=0;ulInd<$ulAll.length;ulInd++){	
+				var $ul = $ulAll.eq(ulInd),
+				$li = $ul.find("li"), 
+				gd = [], rw = 0;
+	
+				// add =0 initial rows
+				for (var i=0; i<=rw; i++){
+					addGridRowData(i);	
+				}
+	
+				for (var i=0;i<$li.length;i++){
+					addToGrid( $li.eq(i) );
+				}
+	
+				// add row could to ul
+				$ul.attr("class","").addClass("cmp-tile-height-"+(rw+1).toString());
+
 			}
-
-			for (var i=0;i<$li.length;i++){
-				addToGrid( $li.eq(i) );
-			}
-
-			// add row could to ul
-			$ul.attr("class","").addClass("cmp-tile-height-"+(rw+1).toString());
-
+			
+			// functions
+			
+			
 			function addToGrid($liEl){
 				var added = false;
 				var ptr = $liEl.is(".cmp-tile-portrait");
