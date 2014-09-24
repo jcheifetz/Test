@@ -1,0 +1,41 @@
+﻿@using System;
+@using System.Linq;
+@using System.Net.Mail;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Ajax.cshtml";
+
+
+    string str = "";
+    mailingListDataContext dc = new mailingListDataContext();
+    var list = dc.mailingLists.Where(a => a.sent == false);
+    
+    
+    if (list.Count()!=0){
+	    foreach(var el in list){
+            str += el.email + "\n";
+            dc.mailingLists.Where(ml => ml.email == el.email).First().sent = true;
+        }
+        dc.SubmitChanges();
+
+        try
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(System.Web.Configuration.WebConfigurationManager.AppSettings["mailingListFrom"]);
+            mail.To.Add(System.Web.Configuration.WebConfigurationManager.AppSettings["mailingListRecipient"]);
+            mail.Subject = "HMKM Website Mailing List New Signups";
+            mail.IsBodyHtml = false;
+            mail.Body = str;
+            SmtpClient smtp = new SmtpClient();
+
+            smtp.Send(mail);
+
+        }
+        catch (Exception ex)
+        {
+
+        }  
+    }
+	//System.IO.File.WriteAllText(Server.MapPath("/Config/test.txt"), DateTime.Now.ToString()); 
+    
+}

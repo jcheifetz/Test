@@ -11,6 +11,21 @@
 	if (email!=null && emailValidate(email)){
 		message = successTxt;
 		success = true;
+
+        
+        // add to db
+        mailingListDataContext dc = new mailingListDataContext();
+        
+        if (dc.mailingLists.Where(ml=>ml.email==email).Count()==0){
+        
+            mailingList ml = new mailingList();
+            ml.email = email;
+            ml.sent = false;
+            dc.mailingLists.InsertOnSubmit(ml);
+            dc.SubmitChanges();
+		}
+		
+		
 	} else {
 		message = errorTxt;
 		success = false;
