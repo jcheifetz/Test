@@ -4,6 +4,7 @@
 	
     var homePage = CurrentPage.AncestorsOrSelf(1);
 	var level1 = CurrentPage.AncestorsOrSelf(2);
+	var level2= level1.First().Children.Where("NodeTypeAlias==\"Page\"");
 	bool showNav2 = false;
 	
 
@@ -59,21 +60,21 @@
                     <a href="javascript:" class="cmp-show-nav"><span>Show navigation</span></a>
 					
 <!-- Nav -->
-<nav>
-    <ul class="nav-1">
+<nav class="@if(level2.Count()!=0){@("has-nav-2");}">
+	<ul class="nav-1">
 
         @foreach (var item in homePage.First().Children.Where("NodeTypeAlias==\"Page\""))
         {
             <li class="@(level1.First().Id == item.Id ? "nav-1-active" : null)">
 				<a href="@item.Url">@item.Name</a>
 				
-				@if (level1.First().Id == item.Id && level1.First().Children.Where("NodeTypeAlias==\"Page\"").Count()>0){
+				@if (level1.First().Id == item.Id && level2.Count()>0){
 
 					showNav2 = true;	
 
 					<ul class="nav-2">
 					
-						@foreach (var item2 in level1.First().Children.Where("NodeTypeAlias==\"Page\""))
+						@foreach (var item2 in level2)
 						{
 							<li class="@(CurrentPage.AncestorOrSelf(3).Id == item2.Id ? "nav-2-active" : null)"><a href="@item2.Url">@item2.Name</a></li>
 						}
