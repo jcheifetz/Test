@@ -50,7 +50,12 @@ body {
 }
 
 .header-container>header {
-    margin-top: 8px;
+    >div {
+        position: fixed;
+        z-index: 2;
+        background: #fff;
+        padding-top: 8px;
+    }
     h1 {
         border: none;
         height: 37px;
@@ -64,7 +69,7 @@ body {
     }
     .nav-1,.nav-2 {
         text-align: center;
-        margin: 15px 0 7px;
+        margin: 15px 0 0;
         z-index: 1;
         li {
             .inlineBlock;
@@ -88,10 +93,12 @@ body {
 
     .nav-2 {
         position: absolute;
+        background: #fff;
         margin-left: 0;
         border-bottom: 1px solid @colorLighterColor;
         padding-bottom: 0;
-        top: 92px;
+        padding-top: 9px;
+        top: 91px;
         left: 0;
         width: 100%;
         font-size: 80%;
@@ -106,7 +113,9 @@ body {
 }
 
 
-
+.main-container {
+    padding-top: 114px;
+}
 
 .cmp-3col {
     .cmp-3col-col1,.cmp-3col-col2 {
