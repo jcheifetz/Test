@@ -32,13 +32,15 @@
 	var tileContent = content.Children.Where("DocumentTypeAlias.ToLower().IndexOf(\"tile\")!=-1");
 	if (tileContent.Count()!=0){
 		<div class="cmp-tile clearfix @if(content.smallTiles){@("cmp-tile-smallTiles");}">
-			<ul>
-			@foreach (var item in tileContent){
-				
-				@renderTileContent(item);
-				
-					}
-			</ul>
+			<div>
+				<ul>
+				@foreach (var item in tileContent){
+					
+					@renderTileContent(item);
+					
+				}
+				</ul>
+			</div>
 		</div>
 	}
 		

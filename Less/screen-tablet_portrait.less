@@ -50,13 +50,8 @@ body {
 }
 
 .header-container>header {
-    >div {
-        position: fixed;
-        z-index: 2;
-        background: #fff;
-        padding-top: 8px;
-    }
     h1 {
+    	margin: 0;
         border: none;
         height: 37px;
     }
@@ -190,6 +185,7 @@ body {
 
 .generate-tile-grid(@n, @i: 1) when (@i =< @n) { 
     .cmp-tile-y@{i} {
+        z-index: (100-@i);
         margin-top: (@ht*@i);
         padding-top: (@mg*@i);
     }

@@ -104,6 +104,7 @@ body {
 .generate-tile-grid(@n, @i: 1) when (@i =< @n) {
 
     .cmp-tile-y@{i} {
+        z-index: (100-@i);
         margin-top: (@ht*@i);
         padding-top: (@mg*@i);
     }
