@@ -64,17 +64,17 @@ require(["jquery"], function() {
 		if ($(".cmp-tile").length){
 			require(["jquery","vendor/enquire.min"], function(){
 
-				enquire.register("screen and (max-width:767px)", {
+				enquire.register("(max-width:767px)", {
 					match: function(){ 
 						positionContentTiles(1);
 					}
 				});
-				enquire.register("screen and (min-width:768px) and (max-width:1023px)", {
+				enquire.register("(min-width:768px) and (max-width:1023px)", {
 					match: function(){ 
 						positionContentTiles(2);
 					}
 				});
-				enquire.register("screen and (min-width:1024px)", {
+				enquire.register("(min-width:1024px)", {
 					match: function(){ 
 						positionContentTiles(3);
 					}
@@ -141,9 +141,10 @@ require(["jquery"], function() {
 			}
 
 			for (var ulInd=0;ulInd<$ulAll.length;ulInd++){	
-				var $ul = $ulAll.eq(ulInd),
-				$li = $ul.find("li"), 
-				gd = [], rw = 0;
+				var $ul = $ulAll.eq(ulInd);
+				
+				
+				var $li = $ul.find("li"), gd = [], rw = 0;
 	
 				// add =0 initial rows
 				for (var i=0; i<=rw; i++){
