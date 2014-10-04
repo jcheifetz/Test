@@ -16,7 +16,7 @@
 
 }
 @font-face{
-font-family:'HelveticaNeueW01-45Ligh';
+font-family:'HelveticaNeueW01-45Ligh'; 
 src:url("/css/fonts/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix");
 src:url("/css/fonts/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix") format("eot"),url("/css/fonts/530dee22-e3c1-4e9f-bf62-c31d510d9656.woff") format("woff"),url("/css/fonts/688ab72b-4deb-4e15-a088-89166978d469.ttf") format("truetype"),url("/css/fonts/7816f72f-f47e-4715-8cd7-960e3723846a.svg#7816f72f-f47e-4715-8cd7-960e3723846a") format("svg");
 }
@@ -30,6 +30,7 @@ src:url("/css/fonts/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix") format("eo
 
 
 @font-face {
+    font-family: 'SuperiorTitle-bold';
     src: url('/css/fonts/SuperiorTitle-bold-webfont.eot');
     src: url('/css/fonts/SuperiorTitle-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('/css/fonts/SuperiorTitle-bold-webfont.woff') format('woff'),
@@ -436,6 +437,11 @@ noscript {
     }
 }
 
+.cmp-footer1 {
+    position: relative;
+    z-index: 1;
+}
+
 .cmp-footer4 {
     margin-top: 40px;
     text-align: center;
@@ -715,7 +721,8 @@ noscript {
 
         }
         img {
-            width: 100%;
+            width: 100px;
+            height: 100px;
         }
     }
      li {
