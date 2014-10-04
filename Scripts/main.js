@@ -131,11 +131,13 @@ require(["jquery"], function() {
 		} 
 
 		function positionContentTiles(wd){
-
 //console.log(wd);
 			var $el = $(".cmp-tile");
 			var $ulAll = $el.find("ul");
 			var dbl = $el.is(".cmp-tile-smallTiles");
+			if (wd==1 && !dbl){
+				return;
+			}
 			if (dbl){
 				wd*= 2;
 			}
